@@ -35,12 +35,11 @@ class ResUsers(models.Model):
         Generate document PDF
         :return:
         """
-        pdf = self.env['ir.actions.report'].sudo()._render_qweb_pdf(report_id, res_ids=record_id)[0]
-        pdf = base64.b64encode(pdf)
+        pdf = self.env['ir.actions.report'].sudo()._render_qweb_pdf(report_id, res_ids=record_id)
 
         # TODO: for now, PDF files without extension are recognized as application/octet-stream;base64
         try:
-            file_pdf = PdfFileReader(io.BytesIO(base64.b64decode(pdf)), strict=False, overwriteWarnings=False)
+            file_pdf = PdfFileReader(io.BytesIO(pdf), strict=False, overwriteWarnings=False)
         except Exception as e:
             raise UserError(_("This file cannot be read. Is it a valid PDF?"))
         attachment = self.env['ir.attachment'].create(
