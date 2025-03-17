@@ -102,21 +102,13 @@ class SaleOrder(models.Model):
 
         # Get default role
         ref = self.env.ref
-        company_id = ref('sign.sign_item_role_company')
         customer_id = ref('sign.sign_item_role_customer')
-        spouse_id = ref('investisdom_defiscalisation.sign_item_role_spouse')
 
         template = self.rental_contract_template_id
         reference = _("rental contract %s") % self.name
 
         # Send automatically an email to Investor and Investis DOM
-        signers = [{'partner_id': self.investor_id.id, 'role_id': customer_id.id},
-                   {'partner_id': ref('base.main_partner').id, 'role_id': company_id.id}]
-        if self.investor_id.marital_status in ['married_in_community', 'pacse_in_joint_possession']:
-            if not self.investor_id.conjoint_partner_id.email:
-                raise UserError(
-                    _("The conjoint email is not yet set"))
-            signers.append({'partner_id': self.investor_id.conjoint_partner_id.id, 'role_id': spouse_id.id}, )
+        signers = [{'partner_id': self.partner_id.id, 'role_id': customer_id.id}]
         name = _("rental contract %s") % self.investor_id.name
         value = _("Signature Request - %s") % name
 
@@ -146,7 +138,7 @@ class SaleOrder(models.Model):
             if request and rec.signatory_name and request.completed_document and not rec.signed_delivery_note:
                 signatory_name = f"{rec.signatory_firstname or ''} {rec.signatory_name or ''}"
                 rec.signed_delivery_note = request.completed_document
-                rec.signed_delivery_note_filename = attachment_name = _('Signed_delivery_note_%s.pdf') % self.name
+                rec.signed_delivery_note_filename = attachment_name = _('Signed_contract_%s.pdf') % self.name
 
                 # Create attachment and post message
                 attachment = rec._create_signed_attachment(base64.b64decode(request.completed_document))
