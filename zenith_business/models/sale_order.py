@@ -19,8 +19,9 @@
 #
 ##############################################################################
 import base64
+import threading
 
-from odoo import models, fields, _, api
+from odoo import models, fields, _, api, http
 
 
 class SaleOrder(models.Model):
@@ -160,3 +161,24 @@ class SaleOrder(models.Model):
             ], limit=1, order='id desc')
 
             rec.document_sign_request_ids = request
+            
+            if rec.document_sign_request_ids and not rec.rental_contract:
+                # Reservation contract
+                contract_request = http.request.env['sign.request'].sudo().browse(
+                    rec.document_sign_request_ids.filtered(
+                        lambda x: x.template_id.id == rec.reservation_contract_template_id.id).id)
+
+                # Get the completed document and upload it automatically in the convention field
+                if contract_request and not rec.reservation_contract:
+                    if not contract_request.completed_document:
+                        t = threading.Thread(target=contract_request.generate_completed_document())
+                        t.daemon = True
+                        t.start()
+                    resevation_document = contract_request.completed_document
+                    extension = '.' + contract_request.template_id.attachment_id.mimetype.replace('application/',
+                                                                                                     '').replace(
+                        ';base64', '')
+                    filename = contract_request.reference.replace(extension, '') + extension
+
+                    rec.reservation_contract = resevation_document
+                    rec.reservation_contract_filename = filename
