@@ -30,7 +30,7 @@ msgstr "%s a été généré avec succès."
 #. odoo-python
 #: code:addons/zenith_business/models/res_users.py:0
 msgid "%s has been successfully sended."
-msgstr "%s a été envoyé avec succès à %s."
+msgstr "%s a été envoyé avec succès"
 
 #. module: zenith_business
 #: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
