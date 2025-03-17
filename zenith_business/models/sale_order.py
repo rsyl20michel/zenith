@@ -18,10 +18,10 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import base64
 import threading
 
 from odoo import models, fields, _, api, http
+from odoo.exceptions import UserError
 
 
 class SaleOrder(models.Model):
@@ -31,6 +31,7 @@ class SaleOrder(models.Model):
         ('yes', 'Yes'),
         ('no', 'No')
     ], string='Professional use')
+    allow_rental_contract = fields.Boolean(related='company_id.allow_rental_contract', readonly=False)
 
     # Signature
     rental_contract_template_id = fields.Many2one('sign.template', string="Rental contract",
@@ -61,12 +62,24 @@ class SaleOrder(models.Model):
             else:
                 rec.request_item_ids = request_ids[-1:].mapped('request_item_ids')
 
+    def get_registration(self):
+        registration = ''
+        sale_loa_id = self.picking_ids.filtered(lambda x: x.product_id.product_tmpl_id.usage_type == 'scooter_sale_loa')
+        if sale_loa_id and sale_loa_id.mapped('move_ids') and sale_loa_id.mapped('move_ids.lot_ids'):
+            last_display_name = sale_loa_id.mapped('move_ids.lot_ids.display_name')[-1]
+            registration = last_display_name.split()[-1]
+        return registration
+
     def generate_rental_contract(self):
         """
         Generate rental contract
         :return:
         """
         self.ensure_one()
+
+        if len(self.order_line.filtered(lambda x: x.product_id.product_tmpl_id.usage_type == 'scooter_sale_loa')) > 1:
+            raise UserError(
+                _("Only one product of type 'Scooter Sale LOA' is allowed. Please correct your selection before generating the rental contract."))
 
         reference = _("Rental contract %s") % self.partner_id.name
 
@@ -161,7 +174,7 @@ class SaleOrder(models.Model):
             ], limit=1, order='id desc')
 
             rec.document_sign_request_ids = request
-            
+
             if rec.document_sign_request_ids and not rec.rental_contract:
                 # Reservation contract
                 contract_request = http.request.env['sign.request'].sudo().browse(
@@ -176,7 +189,7 @@ class SaleOrder(models.Model):
                         t.start()
                     resevation_document = contract_request.completed_document
                     extension = '.' + contract_request.template_id.attachment_id.mimetype.replace('application/',
-                                                                                                     '').replace(
+                                                                                                  '').replace(
                         ';base64', '')
                     filename = contract_request.reference.replace(extension, '') + extension
 

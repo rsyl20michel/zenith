@@ -19,12 +19,10 @@
 #
 ##############################################################################
 
-from . import res_city
-from . import res_partner
-from . import res_company
-from . import res_config_settings
-from . import product_template
-from . import res_users
-from . import sign_request
-from . import sign_template
-from . import sale_order
+from odoo import fields, models
+
+
+class ResConfigSettings(models.TransientModel):
+    _inherit = 'res.config.settings'
+
+    allow_rental_contract = fields.Boolean(related='company_id.allow_rental_contract', readonly=False)
