@@ -10,9 +10,10 @@
       <field name="arch" type="xml">
         <field name="payment_term_id" position="after">
           <field name="professional_use"/>
+          <field name="allow_rental_contract" invisible="1"/>
         </field>
         <xpath expr="//page[@name='other_information']" position="after">
-          <page name="documents" string="Documents">
+          <page name="documents" string="Documents" invisible="not allow_rental_contract">
             <group>
               <field name="rental_contract_template_id" invisible="1"/>
               <label for="rental_contract"/>

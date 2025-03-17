@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e-20241126\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-17 13:43+0000\n"
-"PO-Revision-Date: 2025-03-17 13:43+0000\n"
+"POT-Creation-Date: 2025-03-17 17:16+0000\n"
+"PO-Revision-Date: 2025-03-17 17:16+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -229,14 +229,21 @@ msgid "Active"
 msgstr "Actif"
 
 #. module: zenith_business
+#: model:ir.model.fields,field_description:zenith_business.field_res_company__allow_rental_contract
+#: model:ir.model.fields,field_description:zenith_business.field_res_config_settings__allow_rental_contract
+#: model:ir.model.fields,field_description:zenith_business.field_sale_order__allow_rental_contract
+#: model_terms:ir.ui.view,arch_db:zenith_business.res_config_settings_view_form
+msgid "Allow Rental Contract"
+msgstr "Autoriser le contrat de location"
+
+#. module: zenith_business
 #: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
 msgid "Are you sure you want to regenerate the document?"
 msgstr "Voulez-vous vraiment régénérer le document?"
 
 #. module: zenith_business
 #: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
-msgid ""
-"Are you sure you want to send the document?"
+msgid "Are you sure you want to send the document?"
 msgstr "Voulez-vous vraiment envoyer le document ?"
 
 #. module: zenith_business
@@ -364,6 +371,16 @@ msgid "Clause de réserve de propriété : oui"
 msgstr ""
 
 #. module: zenith_business
+#: model:ir.model,name:zenith_business.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: zenith_business
+#: model:ir.model,name:zenith_business.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de configuration"
+
+#. module: zenith_business
 #: model:ir.model,name:zenith_business.model_res_partner
 msgid "Contact"
 msgstr ""
@@ -451,6 +468,12 @@ msgid ""
 "                En cas de sinistre partiel (c’est-à-dire tout sinistre qui n’est pas total) vous devrez remettre le\n"
 "                véhicule en état à vos frais."
 msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.res_config_settings_view_form
+msgid "Enable or disable the rental contract generation option"
+msgstr ""
+"Activer ou désactiver la possibilité de générer un contrat de location"
 
 #. module: zenith_business
 #: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
@@ -738,6 +761,16 @@ msgid "Number of messages with delivery error"
 msgstr ""
 
 #. module: zenith_business
+#. odoo-python
+#: code:addons/zenith_business/models/sale_order.py:0
+msgid ""
+"Only one product of type 'Scooter Sale LOA' is allowed. Please correct your "
+"selection before generating the rental contract."
+msgstr ""
+"Un seul produit de type 'Scooter Vente LOA' est autorisé. Veuillez corriger votre "
+"sélection avant de générer le contrat de location."
+
+#. module: zenith_business
 #: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
 msgid ""
 "Outre ce qui est prévu à l’article 4, le contrat de location pourra être résilié de plein droit en cas\n"
@@ -891,19 +924,13 @@ msgstr ""
 #. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_sale_order__document_sign_request_ids
 msgid "Signed Documents"
-msgstr ""
-
-#. module: zenith_business
-#. odoo-python
-#: code:addons/zenith_business/models/sale_order.py:0
-msgid "Signed_contract_%s.pdf"
-msgstr ""
+msgstr "Documents signés"
 
 #. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_sale_order__request_item_ids
 #: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
 msgid "Signers"
-msgstr ""
+msgstr "Signataires"
 
 #. module: zenith_business
 #: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
@@ -925,7 +952,7 @@ msgstr ""
 #. module: zenith_business
 #: model:ir.model.fields,help:zenith_business.field_sign_template__is_rental
 msgid "Technical field to identify rental templates"
-msgstr ""
+msgstr "Champ technique pour identifier les modèles de location"
 
 #. module: zenith_business
 #: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
@@ -934,18 +961,22 @@ msgid ""
 "an actor, click on « Retry »;\\nOtherwise, click on « Generate » to create a"
 " new document and send it again."
 msgstr ""
+"Le document a déjà été envoyé pour signature.\n"
+"Pour renvoyer le mail à un acteur, cliquez sur « Réessayer ».\n"
+"Sinon, cliquez sur « Générer » pour créer un nouveau document et l'envoyer à nouveau."
 
 #. module: zenith_business
 #: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
 msgid ""
 "This will send the document to the recipient. Do you still want to proceed ?"
 msgstr ""
+"Ceci enverra le document au destinataire. Voulez-vous toujours procéder ?"
 
 #. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_product_product__usage_type
 #: model:ir.model.fields,field_description:zenith_business.field_product_template__usage_type
 msgid "Usage Type"
-msgstr ""
+msgstr "Type d'utilisation"
 
 #. module: zenith_business
 #: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
@@ -1047,12 +1078,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
 msgid "ou le premier incident de paiement non régularisé ;"
 msgstr ""
-
-#. module: zenith_business
-#. odoo-python
-#: code:addons/zenith_business/models/sale_order.py:0
-msgid "rental contract %s"
-msgstr "contrat de location %s"
 
 #. module: zenith_business
 #: model_terms:ir.ui.view,arch_db:zenith_business.rental_document

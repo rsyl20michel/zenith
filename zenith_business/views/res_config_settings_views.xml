@@ -25,6 +25,12 @@
                 </div>
               </div>
             </div>
+
+          <setting id="rental_contract"
+                   string="Allow Rental Contract" help="Enable or disable the rental contract generation option">
+            <field name="allow_rental_contract"/>
+          </setting>
+
           </block>
         </app>
       </xpath>

@@ -73,7 +73,7 @@
                     <span t-field="o.professional_use"/>
                   </td>
                   <td colspan="2">Immat :
-                    <!--                  <span t-field="o.x_immatriculation"/>-->
+                    <span t-esc="o.get_registration()"/>
                   </td>
                 </tr>
                 <tr>
@@ -444,10 +444,10 @@
   <record id="report_contract_rental" model="ir.actions.report">
     <field name="name">Contrat de Location Scooter</field>
     <field name="model">sale.order</field>
-    <field name="report_type">qweb-pdf</field>
+    <field name="report_type">qweb-html</field>
     <field name="report_name">zenith_business.rental_document</field>
     <field name="report_file">zenith_business.rental_document</field>
-    <field name="binding_model_id" ref="sale.model_sale_order"/>
+    <field name="binding_model_id" eval="False"/>
     <field name="binding_type">report</field>
   </record>
 </odoo>

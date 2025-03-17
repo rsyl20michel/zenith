@@ -19,12 +19,10 @@
 #
 ##############################################################################
 
-from . import res_city
-from . import res_partner
-from . import res_company
-from . import res_config_settings
-from . import product_template
-from . import res_users
-from . import sign_request
-from . import sign_template
-from . import sale_order
+from odoo import models, fields
+
+
+class ResCompany(models.Model):
+    _inherit = "res.company"
+
+    allow_rental_contract = fields.Boolean(string="Allow Rental Contract")
