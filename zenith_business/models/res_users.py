@@ -18,13 +18,11 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import base64
 import io
-
-from PyPDF2 import PdfFileReader
 
 from odoo import models, _, Command
 from odoo.exceptions import UserError
+from odoo.tools.pdf import PdfFileReader
 
 
 class ResUsers(models.Model):
