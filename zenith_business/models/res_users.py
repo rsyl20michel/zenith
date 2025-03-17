@@ -18,11 +18,13 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+import base64
 import io
+
+from PyPDF2 import PdfFileReader
 
 from odoo import models, _, Command
 from odoo.exceptions import UserError
-from odoo.tools.pdf import PdfFileReader
 
 
 class ResUsers(models.Model):
@@ -33,15 +35,16 @@ class ResUsers(models.Model):
         Generate document PDF
         :return:
         """
-        pdf = self.env['ir.actions.report'].sudo()._render_qweb_pdf(report_id, res_ids=record_id)
+        pdf_content, __ = self.env['ir.actions.report'].sudo()._render_qweb_pdf(report_id, res_ids=record_id)
+        # pdf = base64.b64encode(pdf)
 
         # TODO: for now, PDF files without extension are recognized as application/octet-stream;base64
         # try:
-        #     file_pdf = PdfFileReader(io.BytesIO(pdf), strict=False, overwriteWarnings=False)
+        #     file_pdf = PdfFileReader(io.BytesIO(base64.b64decode(pdf)), strict=False, overwriteWarnings=False)
         # except Exception as e:
         #     raise UserError(_("This file cannot be read. Is it a valid PDF?"))
         attachment = self.env['ir.attachment'].create(
-            {'name': reference, 'datas': pdf[0], 'mimetype': 'application/pdf;base64'})
+            {'name': '%s.pdf' % reference, 'raw': pdf_content, 'type': 'binary'})
         template = self.env['sign.template'].create(
             {'attachment_id': attachment.id, 'favorited_ids': [(4, self.env.user.id)], 'active': True})
         return template
