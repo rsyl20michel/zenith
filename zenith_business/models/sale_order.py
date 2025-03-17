@@ -149,7 +149,7 @@ class SaleOrder(models.Model):
         for rec in self:
             # Reset signed document when computing new sign requests
             if not rec.rental_contract_template_id:
-                rec.signed_delivery_note = False
+                rec.rental_contract = False
                 rec.document_sign_request_ids = False
                 continue
 
@@ -160,14 +160,3 @@ class SaleOrder(models.Model):
             ], limit=1, order='id desc')
 
             rec.document_sign_request_ids = request
-
-            # If we have a signed request and signatory info, and no signed document yet
-            if request and rec.signatory_name and request.completed_document and not rec.signed_delivery_note:
-                signatory_name = f"{rec.signatory_firstname or ''} {rec.signatory_name or ''}"
-                rec.signed_delivery_note = request.completed_document
-                rec.signed_delivery_note_filename = attachment_name = _('Signed_contract_%s.pdf') % self.name
-
-                # Create attachment and post message
-                attachment = rec._create_signed_attachment(base64.b64decode(request.completed_document))
-                if attachment:
-                    rec._post_signature_message(attachment, signatory_name)
