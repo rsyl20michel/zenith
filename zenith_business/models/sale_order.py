@@ -132,11 +132,11 @@ class SaleOrder(models.Model):
         customer_id = ref('sign.sign_item_role_customer')
 
         template = self.rental_contract_template_id
-        reference = _("rental contract %s") % self.name
+        reference = _("Rental contract %s") % self.name
 
         # Send automatically an email to Investor and Investis DOM
         signers = [{'partner_id': self.partner_id.id, 'role_id': customer_id.id}]
-        name = _("rental contract %s") % self.partner_id.name
+        name = _("Rental contract %s") % self.partner_id.name
         value = _("Signature Request - %s") % name
 
         # Set signature sent to True
