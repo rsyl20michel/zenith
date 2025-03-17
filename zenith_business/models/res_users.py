@@ -36,12 +36,12 @@ class ResUsers(models.Model):
         pdf = self.env['ir.actions.report'].sudo()._render_qweb_pdf(report_id, res_ids=record_id)
 
         # TODO: for now, PDF files without extension are recognized as application/octet-stream;base64
-        try:
-            file_pdf = PdfFileReader(io.BytesIO(pdf), strict=False, overwriteWarnings=False)
-        except Exception as e:
-            raise UserError(_("This file cannot be read. Is it a valid PDF?"))
+        # try:
+        #     file_pdf = PdfFileReader(io.BytesIO(pdf), strict=False, overwriteWarnings=False)
+        # except Exception as e:
+        #     raise UserError(_("This file cannot be read. Is it a valid PDF?"))
         attachment = self.env['ir.attachment'].create(
-            {'name': reference, 'datas': pdf, 'mimetype': 'application/pdf;base64'})
+            {'name': reference, 'datas': pdf[0], 'mimetype': 'application/pdf;base64'})
         template = self.env['sign.template'].create(
             {'attachment_id': attachment.id, 'favorited_ids': [(4, self.env.user.id)], 'active': True})
         return template
