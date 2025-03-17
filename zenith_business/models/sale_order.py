@@ -166,7 +166,7 @@ class SaleOrder(models.Model):
                 # Reservation contract
                 contract_request = http.request.env['sign.request'].sudo().browse(
                     rec.document_sign_request_ids.filtered(
-                        lambda x: x.template_id.id == rec.reservation_contract_template_id.id).id)
+                        lambda x: x.template_id.id == rec.rental_contract_template_id.id).id)
 
                 # Get the completed document and upload it automatically in the convention field
                 if contract_request and not rec.rental_contract:
