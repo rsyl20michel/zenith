@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+    <!-- View Sale Order Form -->
+    <record id="view_order_form_inherit" model="ir.ui.view">
+      <field name="name">sale.order.form.inherit</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <field name="payment_term_id" position="after">
+          <field name="professional_use"/>
+        </field>
+        <xpath expr="//page[@name='other_information']" position="after">
+          <page name="documents" string="Documents">
+            <group>
+              <field name="rental_contract_template_id" invisible="1"/>
+              <label for="rental_contract"/>
+              <div class="o_row oe_investis_dom oe_generate">
+                <span class="ps-0">
+                  <field name="rental_contract_filename" invisible="1"/>
+                  <field name="rental_contract"
+                         filename="rental_contract_filename"/>
+                </span>
+                <span style="flex:1">
+                  <button string="Regenerate" class="btn btn-outline-warning oe_investis_dom oe_generate mx-1"
+                          type="object" icon="fa-repeat"
+                          name="generate_rental_contract"
+                          confirm="Are you sure you want to regenerate the document?"
+                          context="{'regenerate': True}"
+                          invisible="not rental_contract"/>
+                  <button string="Generate" class="btn btn-outline-success oe_investis_dom oe_generate mx-1"
+                          name="generate_rental_contract" icon="fa-cogs"
+                          invisible="rental_contract"
+                          type="object"/>
+                  <button string="Preview" class="btn btn-outline-info oe_investis_dom oe_generate mx-1"
+                          name="preview_rental_contract" icon="fa-eye"
+                          invisible="rental_contract or not rental_contract_template_id"
+                          type="object"/>
+                  <button string="Send for signature" class="btn btn-outline-primary oe_investis_dom oe_generate mx-1"
+                          name="send_rental_contract" icon="fa-envelope"
+                          confirm="Are you sure you want to send the document? This action can take few seconds."
+                          invisible="rental_contract or not rental_contract_template_id or is_signature_sent"
+                          type="object"/>
+                  <button string="Send for signature" class="btn btn-outline-primary oe_investis_dom oe_generate mx-1"
+                          name="send_rental_contract" icon="fa-envelope"
+                          confirm="The document has already been sent for signature.\nTo resend the email to an actor, click on « Retry »;\nOtherwise, click on « Generate » to create a new document and send it again."
+                          invisible="rental_contract or not rental_contract_template_id or not is_signature_sent"
+                          type="object"/>
+                </span>
+              </div>
+            </group>
+          </page>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

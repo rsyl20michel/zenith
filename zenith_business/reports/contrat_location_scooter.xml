@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <template id="rental_document">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="o">
+        <t t-call="web.external_layout">
+          <div class="page">
+            <h2 class="text-center mb-4">CONTRAT DE LOCATION DE SCOOTER AVEC ACHAT À TERME</h2>
+
+            <h4>Article 1 : Parties contractantes</h4>
+            <div class="row mb-4" style="border: 1px solid black; padding: 10px;">
+              <div class="col-6">
+                <strong>Bailleur</strong>
+                <br/>
+                ZE LOC MAYOTTE
+                <br/>
+                4 Impasse Maharadja
+                <br/>
+                97600 Mamoudzou
+                <br/>
+                <strong>SIRET : 935 360 529 00017</strong>
+              </div>
+              <div class="col-6" style="border-left: 1px solid black;">
+                <strong>Locataire</strong>
+                <br/>
+                Nom :
+                <span t-field="o.partner_id.lastname"/>
+                <br/>
+                Prénom(s) :
+                <span t-field="o.partner_id.firstname"/>
+                <br/>
+                Adresse :
+                <span t-field="o.partner_id.street"/>
+                <span t-field="o.partner_id.street2"/>
+                <br/>
+                Code postal :
+                <span t-field="o.partner_id.zip"/>
+                <br/>
+                Email :
+                <span t-field="o.partner_id.email"/>
+                <br/>
+                Numéro de téléphone :
+                <span t-field="o.partner_id.phone"/>
+              </div>
+            </div>
+
+            <p class="mb-4">La présente offre est valable 15 jours, soit jusqu'au
+              <t t-esc="(o.date_order + datetime.timedelta(days=15)).strftime('%d/%m/%Y')"/>
+            </p>
+
+            <h4>Article 2 : Description caractéristiques de la location avec achat à terme</h4>
+            <div class="row mb-4" style="border: 1px solid black; padding: 10px;">
+              <table class="table table-borderless mb-4">
+                <tr>
+                  <td colspan="2">
+                    <strong>Bien à financer : scooter</strong>
+                    <span t-field="o.order_line[0].product_id.name"/>
+                    <br/>
+                    <span t-field="o.order_line[0].product_id.description"/>
+                  </td>
+                  <td>Prix au comptant :
+                    <span t-field="o.amount_total"/>
+                    TTC
+                  </td>
+                  <td>Bien neuf</td>
+                </tr>
+                <tr>
+                  <td>1ère mise en circulation :
+                    <span t-field="o.date_order" t-options='{"format": "dd/MM/yyyy"}'/>
+                  </td>
+                  <td>Usage professionnel :
+                    <span t-field="o.professional_use"/>
+                  </td>
+                  <td colspan="2">Immat :
+                    <!--                  <span t-field="o.x_immatriculation"/>-->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Nombre de km : 0</td>
+                  <td>Périodicité : Cash</td>
+                  <td colspan="2">Assurance : NON</td>
+                </tr>
+                <tr>
+                  <td>Durée : fin de location au 31/12/2025</td>
+                  <td colspan="2">Loyers (hors assurance) : 1</td>
+                  <td>1er loyer de
+                    <span t-field="o.amount_total"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dépôt de garantie : 0 euros</td>
+                  <td colspan="3">Clause de réserve de propriété : oui</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="row mb-4" style="border: 1px solid black; padding: 10px;">
+              <p>Le prix de vente final au terme de la location est de 0 euros (inclus frais de carte grise et
+                éventuelles taxes)
+              </p>
+              <p>- Coût total des loyers hors assurances :
+                <span t-field="o.amount_total"/>
+                TTC
+              </p>
+              <p>- Coût total à terme du contrat :
+                <span t-field="o.amount_total"/>
+                TTC
+              </p>
+              <p>La souscription d'une assurance est obligatoire (cf. article 6). Les frais d'immatriculation sont à
+                votre charge.
+              </p>
+              <p>Clause de réserve de propriété : le bailleur se réserve exclusivement la propriété dudit bien jusqu'au
+                paiement intégral des loyers et pendant la durée du contrat. Le locataire assume tous les risques dès la
+                livraison du Véhicule.
+              </p>
+            </div>
+
+            <div class="row mb-4" style="border: 1px solid black; padding: 10px;">
+              <p>Modalité de paiement des échéances : CB (option 4X sans frais) ou espèces.</p>
+            </div>
+
+            <h4>Article 3 : Modalités de remboursements</h4>
+            <p class="mb-4">Le loyer est payable en une fois au plus tard le jour de la livraison. Le mode de règlement
+              choisi pour le paiement du loyer est la Carte bancaire, le virement ou l'espèce.
+            </p>
+
+            <h4>Article 4 : Exécution du contrat</h4>
+            <div class="mb-4">
+              <p>Le Bailleur s'engage sur la période de location à maintenir le véhicule en bon état de marche. Sont
+                exclus les éléments dits d'usure (pneus, freins) et toutes réparations inhérentes à une mauvaise
+                utilisation du véhicule de la part du locataire (voir notice explicative).
+              </p>
+              <p>Notamment, la carrosserie, le châssis et les pare-chocs ne devront présenter aucune autre déformation
+                ou rayure autres que celles provenant d'un usage normal. La sellerie, les garnitures ne doivent être ni
+                trouées, ni déchirées, ni tâchées. Le démontage des accessoires qui sont votre propriété n'est possible
+                que s'il ne laisse pas de trace. Les éléments mécaniques et de sécurité doivent être présents et ne pas
+                présenter d'usure anormale
+              </p>
+              <p>Au terme du contrat, le bailleur réalisera le transfert de carte grise selon les éléments transmis lors
+                de la rédaction du contrat, au nom exclusif du locataire qui en aura alors la pleine jouissance.
+              </p>
+            </div>
+
+            <h4>Article 5 : Propriété du Véhicule</h4>
+            <div class="mb-4">
+              <p>Le Bailleur est et reste propriétaire du véhicule pendant toute la durée de la location. En cas de
+                saisie notamment, vous ferez le nécessaire pour en obtenir la mainlevée à vos frais. Vous vous engagez à
+                faire respecter ce droit de propriété et informerez immédiatement le bailleur de toute remise en cause
+                de ce droit de propriété. Vous vous interdisez de céder le véhicule, le sous-louer sauf autorisation
+                expresse du Bailleur, le donner en gage ou le nantir.
+              </p>
+              <p>Le véhicule doit être obligatoirement immatriculé au nom du Bailleur et à celui du Preneur. Vous
+                conservez la faculté de prêter le véhicule, sous réserve que ce prêt soit intégralement couvert par
+                votre assurance tous risques.
+              </p>
+            </div>
+
+            <h4>Article 6 : Assurances</h4>
+            <div class="mb-4">
+              <p>A compter de la livraison du Véhicule, vous êtes en votre qualité de gardien responsable de tous les
+                dommages causés au Véhicule. En conséquence, vous êtes tenus de souscrire auprès d’une compagnie
+                d’assurance pour toute la durée de la location une police couvrant votre responsabilité civile illimitée
+                et tous les risques courus par le bien à concurrence de sa valeur vénale (vol, incendie, explosion).
+                Vous devrez en justifier dès la livraison du bien. Cette assurance doit mentionner explicitement la
+                qualité de propriétaire du bailleur et indiquera que toutes les indemnités lui seront versées en qualité
+                de bénéficiaire exclusif. L’assurance ne couvre que la valeur du bien et non pas les sommes que vous
+                pourriez devoir en cas de résiliation du contrat. En cas de sinistre entraînant une dépréciation de plus
+                de 20% de la valeur vénale du bien, vous devrez informer le bailleur dans les 5 jours par lettre
+                recommandée.
+              </p>
+            </div>
+
+            <h4>Article 7 : Dépôt de garantie</h4>
+            <div class="mb-4">
+              <p>Le dépôt de garantie ne porte pas intérêt.
+              </p>
+            </div>
+
+            <h4>Article 8 : Utilisation</h4>
+            <div class="mb-4">
+              <p>Vous vous engagez à n’utiliser le véhicule que sur l’île de Mayotte. Vous maintiendrez le véhicule en
+                parfait état de marche conformément aux impératifs techniques fixés par le constructeur, l'utiliserez en
+                personne raisonnable.
+              </p>
+              <p>
+                Vous vous en interdisez l'utilisation pour rallyes, compétitions, transport de
+                passagers à titre onéreux, usage d’auto-écoles, sauf accord écrit du bailleur. Toutes modifications,
+                adjonctions ou améliorations du bien loué ne peuvent être effectuées qu'après accord du bailleur.
+              </p>
+              <p>
+                Par dérogation à l'article 1724 du Code civil, vous renoncez à toute réduction de loyer, indemnité et
+                droit de résiliation vis-à-vis du Bailleur, même au cas où le véhicule serait hors d'usage pendant plus
+                de 21 jours. Vous supportez seul les impôts, taxes et frais y compris le contrôle technique obligatoire,
+                ainsi que les amendes et contraventions encourues.
+              </p>
+            </div>
+
+            <h4>Article 9 : Résiliation de plein droit du contrat en cas de défaillance du locataire :</h4>
+            <div class="mb-4">
+              <p>Outre ce qui est prévu à l’article 4, le contrat de location pourra être résilié de plein droit en cas
+                de perte du véhicule, ou de sa non-restitution aux date et lieu fixés au terme du contrat,
+                d’inexactitude avérée d’une information essentielle communiquée, de défaut de paiement du loyer, du
+                non-respect du droit de propriété du Bailleur, d’utilisation non conforme du Véhicule, de manquement à
+                un engagement contracté, de décès de locataire.
+              </p>
+              <p>
+                En cas de sinistre total (réparation des dommages supérieure à la valeur vénale du véhicule) ou de vol
+                du véhicule, le contrat sera résilié de plein droit et vous serez tenu de restituer l’épave éventuelle à
+                vos frais au lieu indiqué par le Bailleur. Vous serez redevable d'une indemnité égale à la valeur
+                d'achat du véhicule au jour du sinistre, à savoir le prix du véhicule, diminué des loyers déjà réglés.
+                L’éventuelle indemnité versée au Bailleur par l'assureur automobile viendra en déduction de cette somme.
+                En cas de sinistre partiel (c’est-à-dire tout sinistre qui n’est pas total) vous devrez remettre le
+                véhicule en état à vos frais.
+              </p>
+            </div>
+
+            <h4>Article 10 : Données personnelles</h4>
+            <div class="mb-4">
+              <p>Dans le cadre de votre relation avec notre société, nous allons utiliser vos données pour l’exécution
+                du présent contrat. Nous sommes donc susceptibles d’utiliser vos données dans le cadre de la gestion des
+                amendes et des contentieux (communication à un huissier, un avocat, aux juridictions), ou afin de se
+                conformer à une réglementation applicable.
+              </p>
+              <p>
+                La signature du présent contrat vaut autorisation pour la société de collecter, d’enregistrer et de
+                stocker les données nécessaires.
+              </p>
+              <p>
+                Vos données seront conservées le temps nécessaire à ces différentes opérations, ou pour la durée
+                spécifiquement prévue par la CNIL ou la loi.
+              </p>
+              <p>
+                Nous sommes légalement tenus de vérifier que vos données sont exactes, complètes et, si nécessaire,
+                mises à jour. Nous pourrons ainsi vous solliciter pour le vérifier ou être amenés à compléter votre
+                dossier (par exemple en enregistrant votre email si vous nous avez écrit un courrier électronique).
+              </p>
+              <p>
+                Vous bénéficiez notamment d’un droit d’accès, de rectification et d’effacement des informations qui vous
+                concernent, que vous pouvez exercer en adressant directement une demande à direction@zemoove.yt
+              </p>
+            </div>
+
+            <h4>Article 11 : Formation du contrat</h4>
+            <div class="mb-4">
+              <p>
+                Cette offre peut devenir votre contrat de location avec achat à terme dans les conditions suivantes :
+              </p>
+              <p>
+                Si cette offre vous convient, vous devez faire connaître au bailleur que vous l'acceptez en lui
+                renvoyant un exemplaire de cette offre dûment rempli après avoir apposé votre signature.
+                Après avoir accepté, vous pouvez revenir sur votre engagement, dans un délai de quatorze jours à compter
+                de votre acceptation, en renvoyant le formulaire détachable joint, après l'avoir signé.
+                Le bailleur se réserve le droit d'accorder ou de refuser la location dans un délai de sept jours, à
+                compter de l'acceptation du contrat par le locataire.
+              </p>
+              <p>
+                Pendant un délai de sept jours à compter de l'acceptation du contrat par le locataire, aucun paiement,
+                sous quelque forme et à quelque titre que ce soit, ne peut être fait par le locataire au bailleur ou
+                pour le compte de celui-ci. Pendant ce même délai, le locataire ne peut non plus faire, au titre de
+                l'opération en cause, aucun dépôt au profit du bailleur ou pour le compte de celui-ci.
+              </p>
+              <p>
+                Si une autorisation du prélèvement sur son compte bancaire est signée par le locataire, sa validité et
+                sa prise d'effet sont subordonnées à celles du contrat de location.
+              </p>
+              <p>
+                Le Véhicule sera livré à l’issue de l’expiration du délai de rétractation de 14 jours. Le dépôt de
+                garantie et le premier loyer devront avoir été versés au plus tard la veille de la livraison du
+                véhicule.
+              </p>
+            </div>
+
+            <h4>Article 12 : Médiation et Contentieux</h4>
+            <div class="mb-4">
+              <p>En cas de contentieux, le consommateur peut recourir à la procédure de médiation prévue à l'article L.
+                316-1 du code monétaire et financier et ses modalités d'accès ;
+              </p>
+
+              <p>Par ailleurs, il est rappelé les dispositions de l'article R 312-35 du code de la consommation :</p>
+
+              <p style="font-style: italic;">Le tribunal judiciaire connaît des litiges nés de l'application des
+                dispositions du présent chapitre. Les actions en paiement engagées devant lui à l'occasion de la
+                défaillance de l'emprunteur doivent être formées dans les deux ans de l'événement qui leur a donné
+                naissance à peine de forclusion. Cet événement est caractérisé par :
+              </p>
+
+              <ul>
+                <li>le non-paiement des sommes dues à la suite de la résiliation du contrat ou de son terme ;</li>
+                <li>ou le premier incident de paiement non régularisé ;</li>
+                <li>ou le dépassement non régularisé du montant total du crédit consenti dans le cadre d'un contrat de
+                  crédit renouvelable ;
+                </li>
+                <li>ou le dépassement, au sens du 13° de l'article L. 311-1, non régularisé à l'issue du délai prévu à
+                  l'article L. 312-93.
+                </li>
+              </ul>
+
+              <p style="font-style: italic;">Lorsque les modalités de règlement des échéances impayées ont fait l'objet
+                d'un réaménagement ou d'un rééchelonnement, le point de départ du délai de forclusion est le premier
+                incident non régularisé intervenu après le premier aménagement ou rééchelonnement conclu entre les
+                intéressés ou après adoption du plan conventionnel de redressement prévu à l'article L. 732-1 ou après
+                décision de la commission imposant les mesures prévues à l'article L. 733-1 ou la décision du juge de
+                l'exécution homologuant les mesures prévues à l'article L. 733-7.
+              </p>
+
+              <p>Enfin, il est rappelé :</p>
+              <ul>
+                <li>L'adresse de l'Autorité de contrôle prudentiel mentionnée à l'article L. 612-1 du code monétaire et
+                  financier : 4 Pl. de Budapest, 75009 Paris
+                </li>
+                <li>L'adresse de l'autorité administrative chargée de la concurrence et de la consommation : 59
+                  boulevard Vincent-Auriol 75013 Paris France.
+                </li>
+              </ul>
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr style="height: 120px;">
+                <td style="width: 50%; text-align: center; vertical-align: top;"></td>
+                <td style="width: 50%; text-align: center; vertical-align: middle;">
+                  <img src="/zenith_business/static/src/img/signature.png" width="25%"/>
+                </td>
+              </tr>
+              <tr>
+                <td style="width: 50%; text-align: center; vertical-align: top;">
+                  <p class="mt-2">Le locataire</p>
+                  <p>Signé le :
+                    <span t-field="o.date_order" t-options='{"format": "dd/MM/yyyy"}'/>
+                  </p>
+                  <p>À : Mamoudzou</p>
+                </td>
+                <td style="width: 50%; text-align: center; vertical-align: top;">
+                  <p class="mt-2">Le bailleur</p>
+                  <p>Signé le :
+                    <t t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y')"/>
+                  </p>
+                  <p>À : Mamoudzou</p>
+                </td>
+              </tr>
+            </table>
+
+
+            <!-- Saut de page -->
+            <div style="page-break-before: always;">
+              <h3 class="text-center mb-4">FORMULAIRE DE RÉTRACTATION</h3>
+              <p class="mb-4">(Conformément aux articles L. 221-5 et L. 221-9 du Code de la consommation)</p>
+
+              <div class="mb-3">
+                <p class="font-weight-bold">À retourner complété et signé par courrier recommandé avec accusé de
+                  réception à l'adresse suivante :
+                </p>
+                <p>ZE LOC MAYOTTE</p>
+                <p>4 Impasse Maharadja – 97600 Mamoudzou</p>
+                <p>direction@zemoove.yt</p>
+              </div>
+
+              <div class="mb-3">
+                <p>📅 Date : _____ /_____ /_____</p>
+              </div>
+
+              <div class="mb-3">
+                <p>📌 Je soussigné(e), _________________________________ vous notifie par la présente ma rétractation du
+                  contrat portant sur la vente du bien / prestation de service ci-dessous :
+                </p>
+              </div>
+
+              <div class="mb-3">
+                <p>📌 Numéro de commande ou contrat :
+                  <span t-field="o.name"/>
+                </p>
+              </div>
+
+              <div class="mb-3">
+                <p>📌 Date de la commande ou de la conclusion du contrat : _____ /_____ /_____</p>
+              </div>
+
+              <div class="mb-3">
+                <p>📌 Nom et prénom du consommateur :
+                  <span t-field="o.partner_id.name"/>
+                </p>
+              </div>
+
+              <div class="mb-3">
+                <p>📌 Adresse du consommateur :
+                  <span t-field="o.partner_id.street"/>
+                  <span t-field="o.partner_id.street2"/>
+                </p>
+              </div>
+
+              <div class="mb-3">
+                <p>✍️Signature du consommateur :</p>
+                <p>✏️_____________________________________________________________</p>
+              </div>
+
+              <div class="mb-4">
+                <p class="font-weight-bold">📌 Mode de remboursement souhaité :</p>
+                <div class="ml-4">
+                  <p>☐ Virement bancaire (joindre un RIB)</p>
+                  <p>☐ Chèque</p>
+                  <p>☐ Espèces</p>
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <p class="font-italic">ℹRappel : Conformément à l'article L. 221-18 du Code de la consommation, ce
+                  formulaire doit être envoyé dans un délai de 14 jours à compter de la réception du bien ou de la
+                  conclusion du contrat de prestation de service.
+                </p>
+              </div>
+            </div>
+          </div>
+        </t>
+      </t>
+    </t>
+  </template>
+
+  <record id="action_report_contrat_location_scooter" model="ir.actions.report">
+    <field name="name">Contrat de Location Scooter</field>
+    <field name="model">sale.order</field>
+    <field name="report_type">qweb-html</field>
+    <field name="report_name">zenith_business.rental_document</field>
+    <field name="report_file">zenith_business.rental_document</field>
+    <field name="binding_model_id" ref="sale.model_sale_order"/>
+    <field name="binding_type">report</field>
+  </record>
+</odoo>
