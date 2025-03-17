@@ -54,7 +54,7 @@ class SaleOrder(models.Model):
         ref = self.env.ref
         customer_id = ref('sign.sign_item_role_customer')
 
-        template = self.env.user.generate_sign_template(reference, 'zenith_business.rental_document',
+        template = self.env.user.generate_sign_template(reference, 'zenith_business.report_contract_rental',
                                                         self.id)
 
         # Set Contract template to the new document
@@ -64,15 +64,23 @@ class SaleOrder(models.Model):
         self.rental_contract = False
 
         type_signature = ref('sign.sign_item_type_signature')
+        type_date = ref('sign.sign_item_type_date')
 
         sign_item_values = [
             {'template_id': template.id, 'type_id': type_signature.id, 'required': True,
              'option_ids': [], 'responsible_id': customer_id.id,
-             'page': 1,
-             'posX': 0.683,
-             'posY': 0.776,
+             'page': 4,
+             'posX': 0.166,
+             'posY': 0.503,
              'width': 0.270,
              'height': 0.075},
+            {'template_id': template.id, 'type_id': type_date.id, 'required': True,
+             'option_ids': [], 'responsible_id': customer_id.id,
+             'page': 4,
+             'posX': 0.256,
+             'posY': 0.611,
+             'width': 0.150,
+             'height': 0.015}
         ]
 
         self.env['sign.item'].create(sign_item_values)

@@ -414,7 +414,7 @@
     </t>
   </template>
 
-  <record id="action_report_contrat_location_scooter" model="ir.actions.report">
+  <record id="report_contract_rental" model="ir.actions.report">
     <field name="name">Contrat de Location Scooter</field>
     <field name="model">sale.order</field>
     <field name="report_type">qweb-pdf</field>
