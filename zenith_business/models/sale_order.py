@@ -169,7 +169,7 @@ class SaleOrder(models.Model):
                         lambda x: x.template_id.id == rec.reservation_contract_template_id.id).id)
 
                 # Get the completed document and upload it automatically in the convention field
-                if contract_request and not rec.reservation_contract:
+                if contract_request and not rec.rental_contract:
                     if not contract_request.completed_document:
                         t = threading.Thread(target=contract_request.generate_completed_document())
                         t.daemon = True
@@ -180,5 +180,5 @@ class SaleOrder(models.Model):
                         ';base64', '')
                     filename = contract_request.reference.replace(extension, '') + extension
 
-                    rec.reservation_contract = resevation_document
-                    rec.reservation_contract_filename = filename
+                    rec.rental_contract = resevation_document
+                    rec.rental_contract_filename = filename
