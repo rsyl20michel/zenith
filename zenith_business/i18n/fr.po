@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e-20241126\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-15 18:33+0000\n"
-"PO-Revision-Date: 2025-03-15 18:33+0000\n"
+"POT-Creation-Date: 2025-03-17 13:43+0000\n"
+"PO-Revision-Date: 2025-03-17 13:43+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,10 +16,206 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: zenith_business
+#: model:ir.model.fields,field_description:zenith_business.field_sale_order__signature_count
+msgid "# Signatures"
+msgstr ""
+
+#. module: zenith_business
+#. odoo-python
+#: code:addons/zenith_business/models/sale_order.py:0
+msgid "%s has been successfully generated."
+msgstr "%s a été généré avec succès."
+
+#. module: zenith_business
+#. odoo-python
+#: code:addons/zenith_business/models/res_users.py:0
+msgid "%s has been successfully sended."
+msgstr "%s a été envoyé avec succès à %s."
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"(Conformément aux articles L. 221-5 et L. 221-9 du Code de la consommation)"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "- Coût total des loyers hors assurances :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "- Coût total à terme du contrat :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "1er loyer de"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "1ère mise en circulation :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "4 Impasse Maharadja – 97600 Mamoudzou"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"<br/>\n"
+"                Adresse :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"<br/>\n"
+"                Code postal :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"<br/>\n"
+"                Email :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"<br/>\n"
+"                Numéro de téléphone :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"<br/>\n"
+"                Prénom(s) :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"<i class=\"fa fa-calendar me-2\"/>\n"
+"                  Date : _____ /_____ /_____"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"<i class=\"fa fa-info me-2\"/>\n"
+"                  Rappel : Conformément à l'article L. 221-18 du Code de la consommation, ce\n"
+"                  formulaire doit être envoyé dans un délai de 14 jours à compter de la réception du bien ou de la\n"
+"                  conclusion du contrat de prestation de service."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "<i class=\"fa fa-pencil me-2\"/>️Signature du consommateur :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"<i class=\"fa fa-pencil "
+"me-2\"/>️_____________________________________________________________"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"<i class=\"fa fa-thumb-tack me-2\"/>\n"
+"                  Adresse du consommateur :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"<i class=\"fa fa-thumb-tack me-2\"/>\n"
+"                  Date de la commande ou de la conclusion du contrat : _____ /_____ /_____"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"<i class=\"fa fa-thumb-tack me-2\"/>\n"
+"                  Je soussigné(e), _________________________________ vous notifie par la présente ma rétractation du\n"
+"                  contrat portant sur la vente du bien / prestation de service ci-dessous :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"<i class=\"fa fa-thumb-tack me-2\"/>\n"
+"                  Mode de remboursement souhaité :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"<i class=\"fa fa-thumb-tack me-2\"/>\n"
+"                  Nom et prénom du consommateur :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"<i class=\"fa fa-thumb-tack me-2\"/>\n"
+"                  Numéro de commande ou contrat :"
+msgstr ""
+
+#. module: zenith_business
 #: model_terms:ir.ui.view,arch_db:zenith_business.res_config_settings_view_form
 msgid ""
 "<i class=\"fa fa-wrench\"/>\n"
 "                  Configuration"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"<strong>Bailleur</strong>\n"
+"                <br/>\n"
+"                ZE LOC MAYOTTE\n"
+"                <br/>\n"
+"                4 Impasse Maharadja\n"
+"                <br/>\n"
+"                97600 Mamoudzou\n"
+"                <br/>\n"
+"                <strong>SIRET : 935 360 529 00017</strong>"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "<strong>Bien à financer : scooter</strong>"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"<strong>Locataire</strong>\n"
+"                <br/>\n"
+"                Nom :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"A compter de la livraison du Véhicule, vous êtes en votre qualité de gardien responsable de tous les\n"
+"                dommages causés au Véhicule. En conséquence, vous êtes tenus de souscrire auprès d’une compagnie\n"
+"                d’assurance pour toute la durée de la location une police couvrant votre responsabilité civile illimitée\n"
+"                et tous les risques courus par le bien à concurrence de sa valeur vénale (vol, incendie, explosion).\n"
+"                Vous devrez en justifier dès la livraison du bien. Cette assurance doit mentionner explicitement la\n"
+"                qualité de propriétaire du bailleur et indiquera que toutes les indemnités lui seront versées en qualité\n"
+"                de bénéficiaire exclusif. L’assurance ne couvre que la valeur du bien et non pas les sommes que vous\n"
+"                pourriez devoir en cas de résiliation du contrat. En cas de sinistre entraînant une dépréciation de plus\n"
+"                de 20% de la valeur vénale du bien, vous devrez informer le bailleur dans les 5 jours par lettre\n"
+"                recommandée."
 msgstr ""
 
 #. module: zenith_business
@@ -33,8 +229,111 @@ msgid "Active"
 msgstr "Actif"
 
 #. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
+msgid "Are you sure you want to regenerate the document?"
+msgstr "Voulez-vous vraiment régénérer le document?"
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
+msgid ""
+"Are you sure you want to send the document?"
+msgstr "Voulez-vous vraiment envoyer le document ?"
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Article 1 : Parties contractantes"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Article 10 : Données personnelles"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Article 11 : Formation du contrat"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Article 12 : Médiation et Contentieux"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Article 2 : Description caractéristiques de la location avec achat à terme"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Article 3 : Modalités de remboursements"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Article 4 : Exécution du contrat"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Article 5 : Propriété du Véhicule"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Article 6 : Assurances"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Article 7 : Dépôt de garantie"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Article 8 : Utilisation"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Article 9 : Résiliation de plein droit du contrat en cas de défaillance du "
+"locataire :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Assurance : NON"
+msgstr ""
+
+#. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_res_city__message_attachment_count
 msgid "Attachment Count"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Au terme du contrat, le bailleur réalisera le transfert de carte grise selon les éléments transmis lors\n"
+"                de la rédaction du contrat, au nom exclusif du locataire qui en aura alors la pleine jouissance."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Bien neuf"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "CONTRAT DE LOCATION DE SCOOTER AVEC ACHAT À TERME"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Cette offre peut devenir votre contrat de location avec achat à terme dans "
+"les conditions suivantes :"
 msgstr ""
 
 #. module: zenith_business
@@ -50,6 +349,21 @@ msgid "City"
 msgstr "Ville"
 
 #. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Clause de réserve de propriété : le bailleur se réserve exclusivement la propriété dudit bien\n"
+"                  jusqu'au\n"
+"                  paiement intégral des loyers et pendant la durée du contrat. Le locataire assume tous les risques dès\n"
+"                  la\n"
+"                  livraison du Véhicule."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Clause de réserve de propriété : oui"
+msgstr ""
+
+#. module: zenith_business
 #: model:ir.model,name:zenith_business.model_res_partner
 msgid "Contact"
 msgstr ""
@@ -59,6 +373,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:zenith_business.field_res_users__city_id
 msgid "Contact City"
 msgstr "Ville contact"
+
+#. module: zenith_business
+#: model:ir.actions.report,name:zenith_business.report_contract_rental
+msgid "Contrat de Location Scooter"
+msgstr ""
 
 #. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_res_city__country_id
@@ -81,9 +400,67 @@ msgid "Created on"
 msgstr "Créé le"
 
 #. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Dans le cadre de votre relation avec notre société, nous allons utiliser vos données pour l’exécution\n"
+"                du présent contrat. Nous sommes donc susceptibles d’utiliser vos données dans le cadre de la gestion des\n"
+"                amendes et des contentieux (communication à un huissier, un avocat, aux juridictions), ou afin de se\n"
+"                conformer à une réglementation applicable."
+msgstr ""
+
+#. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_res_city__display_name
 msgid "Display Name"
 msgstr "Nom d'affichage"
+
+#. module: zenith_business
+#: model:ir.model.fields,help:zenith_business.field_sale_order__rental_contract_template_id
+msgid "Document that the tenant will have to sign."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
+msgid "Documents"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Durée : fin de location au 31/12/2025"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Dépôt de garantie : 0 euros"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"En cas de contentieux, le consommateur peut recourir à la procédure de médiation prévue à l'article L.\n"
+"                316-1 du code monétaire et financier et ses modalités d'accès ;"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"En cas de sinistre total (réparation des dommages supérieure à la valeur vénale du véhicule) ou de vol\n"
+"                du véhicule, le contrat sera résilié de plein droit et vous serez tenu de restituer l’épave éventuelle à\n"
+"                vos frais au lieu indiqué par le Bailleur. Vous serez redevable d'une indemnité égale à la valeur\n"
+"                d'achat du véhicule au jour du sinistre, à savoir le prix du véhicule, diminué des loyers déjà réglés.\n"
+"                L’éventuelle indemnité versée au Bailleur par l'assureur automobile viendra en déduction de cette somme.\n"
+"                En cas de sinistre partiel (c’est-à-dire tout sinistre qui n’est pas total) vous devrez remettre le\n"
+"                véhicule en état à vos frais."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Enfin, il est rappelé :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "FORMULAIRE DE RÉTRACTATION"
+msgstr ""
 
 #. module: zenith_business
 #: model_terms:ir.ui.view,arch_db:zenith_business.view_partner_form_inherit
@@ -113,6 +490,11 @@ msgid "General settings"
 msgstr "Paramètres généraux"
 
 #. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
+msgid "Generate"
+msgstr "Générer"
+
+#. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_res_city__has_message
 msgid "Has Message"
 msgstr ""
@@ -134,8 +516,51 @@ msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Immat :"
+msgstr ""
+
+#. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_res_city__message_is_follower
 msgid "Is Follower"
+msgstr ""
+
+#. module: zenith_business
+#: model:ir.model.fields,field_description:zenith_business.field_sign_template__is_rental
+msgid "Is Rental Template"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"L'adresse de l'Autorité de contrôle prudentiel mentionnée à l'article L. 612-1 du code monétaire et\n"
+"                  financier : 4 Pl. de Budapest, 75009 Paris"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"L'adresse de l'autorité administrative chargée de la concurrence et de la consommation : 59\n"
+"                  boulevard Vincent-Auriol 75013 Paris France."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "La présente offre est valable 15 jours, soit jusqu'au"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"La signature du présent contrat vaut autorisation pour la société de collecter, d’enregistrer et de\n"
+"                stocker les données nécessaires."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"La souscription d'une assurance est obligatoire (cf. article 6). Les frais d'immatriculation sont à\n"
+"                  votre charge."
 msgstr ""
 
 #. module: zenith_business
@@ -155,6 +580,95 @@ msgid "Lastname"
 msgstr "Nom de famille"
 
 #. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Le Bailleur est et reste propriétaire du véhicule pendant toute la durée de la location. En cas de\n"
+"                saisie notamment, vous ferez le nécessaire pour en obtenir la mainlevée à vos frais. Vous vous engagez à\n"
+"                faire respecter ce droit de propriété et informerez immédiatement le bailleur de toute remise en cause\n"
+"                de ce droit de propriété. Vous vous interdisez de céder le véhicule, le sous-louer sauf autorisation\n"
+"                expresse du Bailleur, le donner en gage ou le nantir."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Le Bailleur s'engage sur la période de location à maintenir le véhicule en bon état de marche. Sont\n"
+"                exclus les éléments dits d'usure (pneus, freins) et toutes réparations inhérentes à une mauvaise\n"
+"                utilisation du véhicule de la part du locataire (voir notice explicative)."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Le Véhicule sera livré à l’issue de l’expiration du délai de rétractation de 14 jours. Le dépôt de\n"
+"                garantie et le premier loyer devront avoir été versés au plus tard la veille de la livraison du\n"
+"                véhicule."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Le bailleur"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Le dépôt de garantie ne porte pas intérêt."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Le locataire"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Le loyer est payable en une fois au plus tard le jour de la\n"
+"              livraison. Le mode de règlement\n"
+"              choisi pour le paiement du loyer est la Carte bancaire, le virement ou l'espèce."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Le prix de vente final au terme de la location est de 0 euros (inclus frais de carte grise et\n"
+"                  éventuelles taxes)"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Le tribunal judiciaire connaît des litiges nés de l'application des\n"
+"                dispositions du présent chapitre. Les actions en paiement engagées devant lui à l'occasion de la\n"
+"                défaillance de l'emprunteur doivent être formées dans les deux ans de l'événement qui leur a donné\n"
+"                naissance à peine de forclusion. Cet événement est caractérisé par :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Le véhicule doit être obligatoirement immatriculé au nom du Bailleur et à celui du Preneur. Vous\n"
+"                conservez la faculté de prêter le véhicule, sous réserve que ce prêt soit intégralement couvert par\n"
+"                votre assurance tous risques."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Lorsque les modalités de règlement des échéances impayées ont fait l'objet\n"
+"                d'un réaménagement ou d'un rééchelonnement, le point de départ du délai de forclusion est le premier\n"
+"                incident non régularisé intervenu après le premier aménagement ou rééchelonnement conclu entre les\n"
+"                intéressés ou après adoption du plan conventionnel de redressement prévu à l'article L. 732-1 ou après\n"
+"                décision de la commission imposant les mesures prévues à l'article L. 733-1 ou la décision du juge de\n"
+"                l'exécution homologuant les mesures prévues à l'article L. 733-7."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Loyers (hors assurance) : 1"
+msgstr ""
+
+#. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_res_city__message_has_error
 msgid "Message Delivery error"
 msgstr ""
@@ -165,9 +679,43 @@ msgid "Messages"
 msgstr ""
 
 #. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Modalité de paiement des échéances : CB (option 4X sans frais) ou espèces."
+msgstr ""
+
+#. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_res_city__name
 msgid "Name"
 msgstr "Nom"
+
+#. module: zenith_business
+#: model:ir.model.fields.selection,name:zenith_business.selection__sale_order__professional_use__no
+msgid "No"
+msgstr "Non"
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Nombre de km : 0"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Notamment, la carrosserie, le châssis et les pare-chocs ne devront présenter aucune autre déformation\n"
+"                ou rayure autres que celles provenant d'un usage normal. La sellerie, les garnitures ne doivent être ni\n"
+"                trouées, ni déchirées, ni tâchées. Le démontage des accessoires qui sont votre propriété n'est possible\n"
+"                que s'il ne laisse pas de trace. Les éléments mécaniques et de sécurité doivent être présents et ne pas\n"
+"                présenter d'usure anormale"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Nous sommes légalement tenus de vérifier que vos données sont exactes, complètes et, si nécessaire,\n"
+"                mises à jour. Nous pourrons ainsi vous solliciter pour le vérifier ou être amenés à compléter votre\n"
+"                dossier (par exemple en enregistrant votre email si vous nous avez écrit un courrier électronique)."
+msgstr ""
 
 #. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_res_city__message_needaction_counter
@@ -190,14 +738,254 @@ msgid "Number of messages with delivery error"
 msgstr ""
 
 #. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Outre ce qui est prévu à l’article 4, le contrat de location pourra être résilié de plein droit en cas\n"
+"                de perte du véhicule, ou de sa non-restitution aux date et lieu fixés au terme du contrat,\n"
+"                d’inexactitude avérée d’une information essentielle communiquée, de défaut de paiement du loyer, du\n"
+"                non-respect du droit de propriété du Bailleur, d’utilisation non conforme du Véhicule, de manquement à\n"
+"                un engagement contracté, de décès de locataire."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Par ailleurs, il est rappelé les dispositions de l'article R 312-35 du code "
+"de la consommation :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Par dérogation à l'article 1724 du Code civil, vous renoncez à toute réduction de loyer, indemnité et\n"
+"                droit de résiliation vis-à-vis du Bailleur, même au cas où le véhicule serait hors d'usage pendant plus\n"
+"                de 21 jours. Vous supportez seul les impôts, taxes et frais y compris le contrôle technique obligatoire,\n"
+"                ainsi que les amendes et contraventions encourues."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Pendant un délai de sept jours à compter de l'acceptation du contrat par le locataire, aucun paiement,\n"
+"                sous quelque forme et à quelque titre que ce soit, ne peut être fait par le locataire au bailleur ou\n"
+"                pour le compte de celui-ci. Pendant ce même délai, le locataire ne peut non plus faire, au titre de\n"
+"                l'opération en cause, aucun dépôt au profit du bailleur ou pour le compte de celui-ci."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
+msgid "Preview"
+msgstr "Prévisualiser"
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Prix au comptant :"
+msgstr ""
+
+#. module: zenith_business
+#: model:ir.model,name:zenith_business.model_product_template
+msgid "Product"
+msgstr "Produit"
+
+#. module: zenith_business
+#: model:ir.model.fields,field_description:zenith_business.field_sale_order__professional_use
+msgid "Professional use"
+msgstr "Usage professionnel"
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Périodicité : Cash"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
+msgid "Regenerate"
+msgstr "Régénérer"
+
+#. module: zenith_business
+#: model:ir.model.fields,field_description:zenith_business.field_sale_order__rental_contract_filename
+msgid "Rental Contract Filename"
+msgstr "Nom de fichier du contrat de location"
+
+#. module: zenith_business
+#: model:ir.model.fields,field_description:zenith_business.field_sale_order__rental_contract
+#: model:ir.model.fields,field_description:zenith_business.field_sale_order__rental_contract_template_id
+msgid "Rental contract"
+msgstr "Contrat de location"
+
+#. module: zenith_business
+#. odoo-python
+#: code:addons/zenith_business/models/sale_order.py:0
+msgid "Rental contract %s"
+msgstr "Contrat de location %s"
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
+msgid "Retry"
+msgstr "Réessayer"
+
+#. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_res_city__message_has_sms_error
 msgid "SMS Delivery error"
 msgstr ""
 
 #. module: zenith_business
+#: model:ir.model,name:zenith_business.model_sale_order
+msgid "Sales Order"
+msgstr "Commande client"
+
+#. module: zenith_business
+#: model:ir.model.fields.selection,name:zenith_business.selection__product_template__usage_type__scooter_sale_loa
+msgid "Scooter Sale LOA"
+msgstr "Scooter Vente LOA"
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
+msgid "Send for signature"
+msgstr "Envoyer pour signature"
+
+#. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_res_city__sequence
 msgid "Sequence"
 msgstr "Séquence"
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Si cette offre vous convient, vous devez faire connaître au bailleur que vous l'acceptez en lui\n"
+"                renvoyant un exemplaire de cette offre dûment rempli après avoir apposé votre signature.\n"
+"                Après avoir accepté, vous pouvez revenir sur votre engagement, dans un délai de quatorze jours à compter\n"
+"                de votre acceptation, en renvoyant le formulaire détachable joint, après l'avoir signé.\n"
+"                Le bailleur se réserve le droit d'accorder ou de refuser la location dans un délai de sept jours, à\n"
+"                compter de l'acceptation du contrat par le locataire."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Si une autorisation du prélèvement sur son compte bancaire est signée par le locataire, sa validité et\n"
+"                sa prise d'effet sont subordonnées à celles du contrat de location."
+msgstr ""
+
+#. module: zenith_business
+#: model:ir.model,name:zenith_business.model_sign_request
+msgid "Signature Request"
+msgstr "Demande de signature"
+
+#. module: zenith_business
+#. odoo-python
+#: code:addons/zenith_business/models/sale_order.py:0
+msgid "Signature Request - %s"
+msgstr ""
+
+#. module: zenith_business
+#: model:ir.model,name:zenith_business.model_sign_template
+msgid "Signature Template"
+msgstr "Modèle de signature"
+
+#. module: zenith_business
+#: model:ir.model.fields,field_description:zenith_business.field_sale_order__is_signature_sent
+msgid "Signature sent"
+msgstr ""
+
+#. module: zenith_business
+#: model:ir.model.fields,field_description:zenith_business.field_sale_order__document_sign_request_ids
+msgid "Signed Documents"
+msgstr ""
+
+#. module: zenith_business
+#. odoo-python
+#: code:addons/zenith_business/models/sale_order.py:0
+msgid "Signed_contract_%s.pdf"
+msgstr ""
+
+#. module: zenith_business
+#: model:ir.model.fields,field_description:zenith_business.field_sale_order__request_item_ids
+#: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
+msgid "Signers"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Signé le :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Signé le :\n"
+"                    <span style=\"color: white;\">AAAA-MM-DD</span>"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "TTC"
+msgstr ""
+
+#. module: zenith_business
+#: model:ir.model.fields,help:zenith_business.field_sign_template__is_rental
+msgid "Technical field to identify rental templates"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
+msgid ""
+"The document has already been sent for signature.\\nTo resend the email to "
+"an actor, click on « Retry »;\\nOtherwise, click on « Generate » to create a"
+" new document and send it again."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
+msgid ""
+"This will send the document to the recipient. Do you still want to proceed ?"
+msgstr ""
+
+#. module: zenith_business
+#: model:ir.model.fields,field_description:zenith_business.field_product_product__usage_type
+#: model:ir.model.fields,field_description:zenith_business.field_product_template__usage_type
+msgid "Usage Type"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "Usage professionnel :"
+msgstr ""
+
+#. module: zenith_business
+#: model:ir.model,name:zenith_business.model_res_users
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Vos données seront conservées le temps nécessaire à ces différentes opérations, ou pour la durée\n"
+"                spécifiquement prévue par la CNIL ou la loi."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Vous bénéficiez notamment d’un droit d’accès, de rectification et d’effacement des informations qui vous\n"
+"                concernent, que vous pouvez exercer en adressant directement une demande à direction@zemoove.yt"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Vous vous en interdisez l'utilisation pour rallyes, compétitions, transport de\n"
+"                passagers à titre onéreux, usage d’auto-écoles, sauf accord écrit du bailleur. Toutes modifications,\n"
+"                adjonctions ou améliorations du bien loué ne peuvent être effectuées qu'après accord du bailleur."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"Vous vous engagez à n’utiliser le véhicule que sur l’île de Mayotte. Vous maintiendrez le véhicule en\n"
+"                parfait état de marche conformément aux impératifs techniques fixés par le constructeur, l'utiliserez en\n"
+"                personne raisonnable."
+msgstr ""
 
 #. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_res_city__website_message_ids
@@ -210,6 +998,16 @@ msgid "Website communication history"
 msgstr ""
 
 #. module: zenith_business
+#: model:ir.model.fields.selection,name:zenith_business.selection__sale_order__professional_use__yes
+msgid "Yes"
+msgstr "Oui"
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "ZE LOC MAYOTTE"
+msgstr ""
+
+#. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_res_city__zip
 msgid "ZIP Code"
 msgstr "Code postal"
@@ -217,4 +1015,68 @@ msgstr "Code postal"
 #. module: zenith_business
 #: model_terms:ir.ui.view,arch_db:zenith_business.res_config_settings_view_form
 msgid "Zenith Business"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "direction@zemoove.yt"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"le non-paiement des sommes dues à la suite de la résiliation du contrat ou "
+"de son terme ;"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"ou le dépassement non régularisé du montant total du crédit consenti dans le cadre d'un contrat de\n"
+"                  crédit renouvelable ;"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"ou le dépassement, au sens du 13° de l'article L. 311-1, non régularisé à l'issue du délai prévu à\n"
+"                  l'article L. 312-93."
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "ou le premier incident de paiement non régularisé ;"
+msgstr ""
+
+#. module: zenith_business
+#. odoo-python
+#: code:addons/zenith_business/models/sale_order.py:0
+msgid "rental contract %s"
+msgstr "contrat de location %s"
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "À : Mamoudzou"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid ""
+"À retourner complété et signé par courrier recommandé avec accusé de\n"
+"                  réception à l'adresse suivante :"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "☐ Chèque"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "☐ Espèces"
+msgstr ""
+
+#. module: zenith_business
+#: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
+msgid "☐ Virement bancaire (joindre un RIB)"
 msgstr ""

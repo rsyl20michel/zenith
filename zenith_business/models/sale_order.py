@@ -40,6 +40,25 @@ class SaleOrder(models.Model):
     rental_contract = fields.Binary(string='Rental contract', copy=False)
     rental_contract_filename = fields.Char(copy=False)
     is_signature_sent = fields.Boolean(string='Signature sent', default=False)
+    signature_count = fields.Integer(string="# Signatures", compute='_compute_signature_count')
+    request_item_ids = fields.One2many('sign.request.item', 'sign_request_id', string="Signers",
+                                       compute='_compute_request_item_ids')
+
+    def _compute_signature_count(self):
+        for rec in self:
+            rec.signature_count = self.env['sign.request'].sudo().search_count(
+                [('template_id', '=', rec.rental_contract_template_id.id)])
+
+    @api.depends('rental_contract_template_id')
+    def _compute_request_item_ids(self):
+        self = self.sudo()
+        for rec in self:
+            request_ids = self.env['sign.request'].sudo().search(
+                [('template_id', 'in', [rec.rental_contract_template_id.id])])
+            if any(request_id.state == 'signed' for request_id in request_ids):
+                rec.request_item_ids = request_ids.filtered(lambda x: x.state == 'signed').mapped('request_item_ids')
+            else:
+                rec.request_item_ids = request_ids[-1:].mapped('request_item_ids')
 
     def generate_rental_contract(self):
         """
@@ -117,7 +136,7 @@ class SaleOrder(models.Model):
 
         # Send automatically an email to Investor and Investis DOM
         signers = [{'partner_id': self.partner_id.id, 'role_id': customer_id.id}]
-        name = _("rental contract %s") % self.investor_id.name
+        name = _("rental contract %s") % self.partner_id.name
         value = _("Signature Request - %s") % name
 
         # Set signature sent to True
