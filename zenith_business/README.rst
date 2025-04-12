@@ -23,3 +23,14 @@ the Affero General Public License (AGPL 3.0).
 
 Please see LICENSE.txt for the full text of the AGPL 3.0 license.
 It is also available through the world-wide-web at this URL: http://www.gnu.org/licenses/agpl.html.
+
+## Odoo.sh
+
+# Récupérer les dernières versions des branches distantes
+git fetch origin
+
+# Rejouer ta branche au-dessus de la dernière version de production
+git rebase origin/main
+
+# Pousser les changements si tout est ok
+git push origin staging --force

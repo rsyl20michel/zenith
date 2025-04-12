@@ -10,6 +10,8 @@
       <field name="arch" type="xml">
         <field name="payment_term_id" position="after">
           <field name="professional_use"/>
+          <field name="installation_type"/>
+          <field name="fiscal_position_id"/>
           <field name="allow_rental_contract" invisible="1"/>
         </field>
         <xpath expr="//page[@name='other_information']" position="after">

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit stock.picking form view -->
+    <record id="view_picking_form_inherit_zenith" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit.zenith</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <!-- Add technical verification fields -->
+            <xpath expr="//sheet/group" position="after">
+                <group string="Vérification Technique"
+                    name="verification_technique"
+                    invisible="picking_type_id != 27">
+                    <field name="verification_technique_faite"/>
+                    <field name="date_validation_technique" readonly="1"/>
+                </group>
+            </xpath>
+            
+            <!-- Add equipe_de_pose field after origin field -->
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="equipe_de_pose" invisible="picking_type_id != 26"/>
+            </xpath>
+            
+            <!-- Add technical validation button -->
+            <xpath expr="//header" position="inside">
+                <button name="action_validation_technique" 
+                        string="Validation technique OK" 
+                        type="object" 
+                        class="oe_highlight" 
+                        confirm="Êtes-vous sûr de vouloir valider la vérification technique ?"
+                        invisible="verification_technique_faite or picking_type_id != 27"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

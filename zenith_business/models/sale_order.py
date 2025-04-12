@@ -31,6 +31,10 @@ class SaleOrder(models.Model):
         ('yes', 'Yes'),
         ('no', 'No')
     ], string='Professional use')
+    installation_type = fields.Selection([
+        ('new', 'New'),
+        ('old', 'Old')
+    ], string='Installation type')
     allow_rental_contract = fields.Boolean(related='company_id.allow_rental_contract', readonly=False)
 
     # Signature
@@ -103,15 +107,30 @@ class SaleOrder(models.Model):
             {'template_id': template.id, 'type_id': type_signature.id, 'required': True,
              'option_ids': [], 'responsible_id': customer_id.id,
              'page': 4,
-             'posX': 0.166,
-             'posY': 0.503,
+             'posX': 0.160,
+             'posY': 0.675,
              'width': 0.270,
              'height': 0.075},
             {'template_id': template.id, 'type_id': type_date.id, 'required': True,
              'option_ids': [], 'responsible_id': customer_id.id,
              'page': 4,
-             'posX': 0.256,
-             'posY': 0.611,
+             'posX': 0.274,
+             'posY': 0.836,
+             'width': 0.150,
+             'height': 0.015},
+            # Signature optionnel pour le droit de rétractation
+            {'template_id': template.id, 'type_id': type_signature.id, 'required': False,
+             'option_ids': [], 'responsible_id': customer_id.id,
+             'page': 5,
+             'posX': 0.075,
+             'posY': 0.488,
+             'width': 0.270,
+             'height': 0.075},
+            {'template_id': template.id, 'type_id': type_date.id, 'required': False,
+             'option_ids': [], 'responsible_id': customer_id.id,
+             'page': 5,
+             'posX': 0.191,
+             'posY': 0.389,
              'width': 0.150,
              'height': 0.015}
         ]
@@ -195,3 +214,21 @@ class SaleOrder(models.Model):
 
                     rec.rental_contract = resevation_document
                     rec.rental_contract_filename = filename
+
+    @api.onchange('sale_order_template_id', 'installation_type')
+    def _onchange_sale_order_template_id(self):
+        sale_order_template = self.sale_order_template_id.with_context(lang=self.partner_id.lang)
+        res = super()._onchange_sale_order_template_id()
+
+        # Si un modèle est sélectionné et qu’il a une position fiscale
+        if sale_order_template and sale_order_template.fiscal_position_id and self.installation_type:
+            self.fiscal_position_id = sale_order_template.fiscal_position_id.id
+
+        # Remplacements selon le type d'installation
+        if self.installation_type and self.company_id.id == 3:
+            if self.installation_type == 'old':
+                self.fiscal_position_id = self.env['account.fiscal.position'].browse(13)
+            elif self.installation_type == 'new':
+                self.fiscal_position_id = self.env['account.fiscal.position'].browse(10)
+
+        return res

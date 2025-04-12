@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+  <t t-name="TaskGanttRenderer.Pill" t-inherit="project_enterprise.TaskGanttRenderer.Pill" t-inherit-mode="extension">
+      <xpath expr="//div[hasclass('o_gantt_lock')]" position="before">
+        <br/>
+        <small t-if="pill.record.type_of_opportunity_badge"
+               t-out="convertToHtml(pill.record.type_of_opportunity_badge)"/>
+        <t t-set="parts" t-value="pill.displayName.split('-')"/>
+        <small t-if="parts.length &gt; 2" class="text-truncate mx-1" t-esc="parts.slice(0, 2).join('-')"/>
+        <br/>
+        <small t-esc="pill.record.partner_id[1]"/>
+        <br/>
+        <small class="text-info" t-if="pill.record.partner_zip" t-esc="pill.record.partner_zip"/>
+        <t class="text-info" t-if="pill.record.partner_city">
+          -
+        </t>
+        <small class="text-info text-wrap" t-if="pill.record.partner_city"
+               t-esc="pill.record.partner_city.slice(0, 20)"/>
+      </xpath>
+    </t>
+
+  <t t-name="GanttRenderer.Pill" t-inherit="web_gantt.GanttRenderer.Pill" t-inherit-mode="extension">
+      <xpath expr="//div[hasclass('o_gantt_pill')]" position="attributes">
+        <attribute name="class" remove="position-relative" separator=" "/>
+        <attribute name="class" remove="d-flex" separator=" "/>
+        <attribute name="class" remove="h-100" separator=" "/>
+      </xpath>
+    <xpath expr="//span[hasclass('o_gantt_pill_title')]" position="before">
+        <t t-set="parts" t-value="pill.displayName.split('-')"/>
+      </xpath>
+    <xpath expr="//span[hasclass('o_gantt_pill_title')]" position="attributes">
+        <attribute name="t-esc">parts.length &gt; 2 ? parts[2] : parts[0]</attribute>
+      </xpath>
+    </t>
+
+</templates>

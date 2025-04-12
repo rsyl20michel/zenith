@@ -27,4 +27,10 @@ from . import product_template
 from . import res_users
 from . import sign_request
 from . import sign_template
+from . import sale_order_template
 from . import sale_order
+from . import calendar_event
+from . import crm_lead
+from . import project_task
+from . import zenith_caracteristique_technique
+from . import stock_picking

@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_zenith_caracteristique_technique_form" model="ir.ui.view">
+        <field name="name">zenith.caracteristique.technique.form</field>
+        <field name="model">zenith.caracteristique.technique</field>
+        <field name="arch" type="xml">
+            <form string="Caractéristique Technique">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <!-- Emplacement pour d'éventuels boutons intelligents -->
+                    </div>
+                    <group>
+                        <div class="o_row">
+                            <field name="lead_id" invisible="context.get('default_lead_id', False)" required="1" readonly="1"/>
+                            <field name="type_of_opportunity_badge" nolabel="1"/>
+                        </div>
+                        <field name="date_premier_passage"/>
+                        <field name="date_controle"/>
+                    </group>
+                    <notebook>
+                        <page string="Spécifications techniques" name="specifications">
+                            <group>
+                                <field name="detail_remarque" widget="html" options="{'collaborative': true, 'resizable': true, 'codeview': true}"/>
+                            </group>
+                        </page>
+                        <page string="Chauffe-eau solaire" name="ces" invisible="type_of_opportunities != 'ces'">
+                            <group>
+                                <group string="Caractéristiques générales">
+                                    <field name="ces_size_in_litre"/>
+                                    <field name="ces_nb_captor"/>
+                                    <field name="ces_color"/>
+                                    <field name="ces_resistance"/>
+                                </group>
+                                <group string="Cuivre et installation">
+                                    <field name="ces_cuivre_supp"/>
+                                    <field name="ces_cuivre_supp_nb_metre" invisible="ces_cuivre_supp == 'no'"/>
+                                    <field name="ces_rehausse"/>
+                                    <field name="ces_type_bloc"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Toit et orientation">
+                                    <field name="ces_pente_degre"/>
+                                    <field name="ces_hauteur_m"/>
+                                    <field name="ces_orientation_prevue"/>
+                                    <field name="ces_charpente"/>
+                                    <field name="ces_type_tole"/>
+                                </group>
+                                <group string="Raccordement">
+                                    <field name="ces_installation_sur"/>
+                                    <field name="ces_raccordement_sur"/>
+                                    <field name="ces_raccordement_detail"/>
+                                    <field name="ces_attentes_prevues"/>
+                                    <field name="ces_distance_cuve_capteur"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Informations existantes">
+                                    <field name="ces_chauffe_eau_existant"/>
+                                    <field name="ces_chauffe_eau_conserver"/>
+                                    <field name="ces_maison_plus_deux_ans"/>
+                                    <field name="ces_date_permis_construire"/>
+                                </group>
+                                <group>
+                                    <!-- Espace réservé pour d'autres champs futurs -->
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Brasseur d'air" name="brasseur_air" invisible="type_of_opportunities != 'ba'">
+                            <group>
+                                <group string="PIV - Nombre de ventilaeur par pièce">
+                                    <field name="ba_nombre_salon"/>
+                                    <field name="ba_nombre_salle_manger"/>
+                                    <field name="ba_nombre_chambre"/>
+                                    <field name="ba_nombre_bureau"/>
+                                    <field name="ba_nombre_terasse_fermee"/>
+                                    <field name="ba_nombre_autre" string="Nombre dans autre pièce"/>
+                                    <field name="ba_motif_autre" invisible="ba_nombre_autre == 0" />
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Photos" name="photos">
+                            <!-- Photos Brasseur d'air -->
+                            <group string="Photos Brasseur d'air" invisible="type_of_opportunities != 'ba'">
+                                <group>
+                                    <group>
+                                        <field name="img_ba_chambre1" widget="image" options="{'preview_image': 'img_ba_chambre1', 'size': [200, 200]}"/>
+                                        <field name="img_ba_chambre1_filename" invisible="1"/>
+                                    </group>
+                                    <group>
+                                        <field name="img_ba_chambre2" widget="image" options="{'preview_image': 'img_ba_chambre2', 'size': [200, 200]}"/>
+                                        <field name="img_ba_chambre2_filename" invisible="1"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="img_ba_chambre3" widget="image" options="{'preview_image': 'img_ba_chambre3', 'size': [200, 200]}"/>
+                                        <field name="img_ba_chambre3_filename" invisible="1"/>
+                                    </group>
+                                    <group>
+                                        <field name="img_ba_chambre4" widget="image" options="{'preview_image': 'img_ba_chambre4', 'size': [200, 200]}"/>
+                                        <field name="img_ba_chambre4_filename" invisible="1"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="img_ba_chambre5" widget="image" options="{'preview_image': 'img_ba_chambre5', 'size': [200, 200]}"/>
+                                        <field name="img_ba_chambre5_filename" invisible="1"/>
+                                    </group>
+                                    <group>
+                                        <field name="img_ba_salon1" widget="image" options="{'preview_image': 'img_ba_salon1', 'size': [200, 200]}"/>
+                                        <field name="img_ba_salon1_filename" invisible="1"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="img_ba_salon2" widget="image" options="{'preview_image': 'img_ba_salon2', 'size': [200, 200]}"/>
+                                        <field name="img_ba_salon2_filename" invisible="1"/>
+                                    </group>
+                                    <group>
+                                        <field name="img_ba_salon3" widget="image" options="{'preview_image': 'img_ba_salon3', 'size': [200, 200]}"/>
+                                        <field name="img_ba_salon3_filename" invisible="1"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="img_ba_bureau" widget="image" options="{'preview_image': 'img_ba_bureau', 'size': [200, 200]}"/>
+                                        <field name="img_ba_bureau_filename" invisible="1"/>
+                                    </group>
+                                    <group>
+                                        <field name="img_ba_sejour" widget="image" options="{'preview_image': 'img_ba_sejour', 'size': [200, 200]}"/>
+                                        <field name="img_ba_sejour_filename" invisible="1"/>
+                                    </group>
+                                </group>
+                            </group>
+                            
+                            <!-- Photos Chauffe-eau solaire -->
+                            <group string="Photos Chauffe-eau solaire" invisible="type_of_opportunities != 'ces'">
+                                <group>
+                                    <group>
+                                        <field name="img_ces_tableau_electrique" widget="image" options="{'preview_image': 'img_ces_tableau_electrique', 'size': [200, 200]}"/>
+                                        <field name="img_ces_tableau_electrique_filename" invisible="1"/>
+                                    </group>
+                                    <group>
+                                        <field name="img_ces_acces_maison" widget="image" options="{'preview_image': 'img_ces_acces_maison', 'size': [200, 200]}"/>
+                                        <field name="img_ces_acces_maison_filename" invisible="1"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="img_ces_attente_electrique" widget="image" options="{'preview_image': 'img_ces_attente_electrique', 'size': [200, 200]}"/>
+                                        <field name="img_ces_attente_electrique_filename" invisible="1"/>
+                                    </group>
+                                    <group>
+                                        <field name="img_ces_attentes_eaux" widget="image" options="{'preview_image': 'img_ces_attentes_eaux', 'size': [200, 200]}"/>
+                                        <field name="img_ces_attentes_eaux_filename" invisible="1"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="img_ces_devanture_maison" widget="image" options="{'preview_image': 'img_ces_devanture_maison', 'size': [200, 200]}"/>
+                                        <field name="img_ces_devanture_maison_filename" invisible="1"/>
+                                    </group>
+                                    <group>
+                                        <field name="img_ces_facade1" widget="image" options="{'preview_image': 'img_ces_facade1', 'size': [200, 200]}"/>
+                                        <field name="img_ces_facade1_filename" invisible="1"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="img_ces_facade2" widget="image" options="{'preview_image': 'img_ces_facade2', 'size': [200, 200]}"/>
+                                        <field name="img_ces_facade2_filename" invisible="1"/>
+                                    </group>
+                                    <group>
+                                        <!-- Espace réservé pour une future image -->
+                                    </group>
+                                </group>
+                            </group>
+                            
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <h4 class="mb-3">Galerie de photos supplémentaires</h4>
+                                    <field name="photo_ids">
+                                        <kanban>
+                                            <field name="id"/>
+                                            <field name="name"/>
+                                            <field name="mimetype"/>
+                                            <templates>
+                                                <t t-name="kanban-box">
+                                                    <t t-set="attachment_id" t-value="record.id.raw_value"/>
+                                                    <div class="oe_kanban_card oe_kanban_global_click"
+                                                         style="width: 150px; height: 150px; margin: 5px; overflow: hidden; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.2);">
+                                                        <div style="position: relative; width: 100%; height: 100%;">
+                                                            <img t-attf-src="/web/image/#{attachment_id}?height=150&amp;width=150"
+                                                                 style="object-fit: cover; width: 100%; height: 100%;"/>
+                                                            <div style="position: absolute; bottom: 0; right: 0; padding: 5px;">
+                                                                <button name="zenith_business.action_image_viewer_wizard"
+                                                                        type="action"
+                                                                        class="btn btn-sm btn-primary"
+                                                                        t-att-context="{'default_attachment_id': attachment_id, 'default_model': 'zenith.caracteristique.technique'}">
+                                                                    Voir
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                            </templates>
+                                        </kanban>
+                                    </field>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <field name="photo_ids" widget="many2many_binary" options="{'accepted_file_extensions': 'image/*', 'only_create': true, 'hide_attachment_list': true}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </page>
+                        <page string="Pièces justificatives" name="documents">
+                            <group>
+                                <group string="Fichiers client">
+                                    <label for="cni_filename" string="CNI"/>
+                                    <div class="o_row">
+                                        <field name="cni_filename" placeholder="Nom du fichier" invisible="1"/>
+                                        <field name="cni_attachment_id" widget="binary" filename="cni_filename" options="{'accepted_file_extensions': '.pdf,.jpg,.jpeg,.png'}"/>
+                                        <button name="action_preview_cni" type="object" string="Prévisualiser" class="btn btn-link" icon="fa-eye"/>
+                                    </div>
+                                    <label for="justificatif_adresse_filename" string="Justificatif d'adresse"/>
+                                    <div class="o_row">
+                                        <field name="justificatif_adresse_filename" placeholder="Nom du fichier" invisible="1"/>
+                                        <field name="justificatif_adresse_attachment_id" widget="binary" filename="justificatif_adresse_filename" options="{'accepted_file_extensions': '.pdf,.jpg,.jpeg,.png'}"/>
+                                        <button name="action_preview_justificatif_adresse" type="object" string="Prévisualiser" class="btn btn-link" icon="fa-eye"/>
+                                    </div>
+                                    <label for="avis_impot_filename" string="Avis d'impôt"/>
+                                    <div class="o_row">
+                                        <field name="avis_impot_filename" placeholder="Nom du fichier" invisible="1"/>
+                                        <field name="avis_impot_attachment_id" widget="binary" filename="avis_impot_filename" options="{'accepted_file_extensions': '.pdf,.jpg,.jpeg,.png'}"/>
+                                        <button name="action_preview_avis_impot" type="object" string="Prévisualiser" class="btn btn-link" icon="fa-eye"/>
+                                    </div>
+                                    <label for="facture_edf_filename" string="Facture EDF"/>
+                                    <div class="o_row">
+                                        <field name="facture_edf_filename" placeholder="Nom du fichier" invisible="1"/>
+                                        <field name="facture_edf_attachment_id" widget="binary" filename="facture_edf_filename" options="{'accepted_file_extensions': '.pdf,.jpg,.jpeg,.png'}"/>
+                                        <button name="action_preview_facture_edf" type="object" string="Prévisualiser" class="btn btn-link" icon="fa-eye"/>
+                                    </div>
+                                    <label for="info_precontractuelle_filename" string="Information Pré-Contractuelle"/>
+                                    <div class="o_row">
+                                        <field name="info_precontractuelle_filename" placeholder="Nom du fichier" invisible="1"/>
+                                        <field name="info_precontractuelle_attachment_id" widget="binary" filename="info_precontractuelle_filename" options="{'accepted_file_extensions': '.pdf,.jpg,.jpeg,.png'}"/>
+                                        <button name="action_preview_info_precontractuelle" type="object" string="Prévisualiser" class="btn btn-link" icon="fa-eye"/>
+                                    </div>
+                                </group>
+                                <group string="Fichiers chantier">
+                                    <label for="attestation_tva_reduite_filename" string="Attestation sur l'honneur TVA réduite"/>
+                                    <div class="o_row">
+                                        <field name="attestation_tva_reduite_filename" placeholder="Nom du fichier" invisible="1"/>
+                                        <field name="attestation_tva_reduite_attachment_id" widget="binary" filename="attestation_tva_reduite_filename" options="{'accepted_file_extensions': '.pdf,.jpg,.jpeg,.png'}"/>
+                                        <button name="action_preview_attestation_tva_reduite" type="object" string="Prévisualiser" class="btn btn-link" icon="fa-eye"/>
+                                    </div>
+                                    <label for="fiche_synthese_filename" string="Fiche synthèse"/>
+                                    <div class="o_row">
+                                        <field name="fiche_synthese_filename" placeholder="Nom du fichier" invisible="1"/>
+                                        <field name="fiche_synthese_attachment_id" widget="binary" filename="fiche_synthese_filename" options="{'accepted_file_extensions': '.pdf,.jpg,.jpeg,.png'}"/>
+                                        <button name="action_preview_fiche_synthese" type="object" string="Prévisualiser" class="btn btn-link" icon="fa-eye"/>
+                                    </div>
+                                    <label for="cadre_contribution_cee_filename" string="Cadre contribution CEE"/>
+                                    <div class="o_row">
+                                        <field name="cadre_contribution_cee_filename" placeholder="Nom du fichier" invisible="1"/>
+                                        <field name="cadre_contribution_cee_attachment_id" widget="binary" filename="cadre_contribution_cee_filename" options="{'accepted_file_extensions': '.pdf,.jpg,.jpeg,.png'}"/>
+                                        <button name="action_preview_cadre_contribution_cee" type="object" string="Prévisualiser" class="btn btn-link" icon="fa-eye"/>
+                                    </div>
+                                    <label for="plan_cadastral_filename" string="Plan cadastral"/>
+                                    <div class="o_row">
+                                        <field name="plan_cadastral_filename" placeholder="Nom du fichier" invisible="1"/>
+                                        <field name="plan_cadastral_attachment_id" widget="binary" filename="plan_cadastral_filename" options="{'accepted_file_extensions': '.pdf,.jpg,.jpeg,.png'}"/>
+                                        <button name="action_preview_plan_cadastral" type="object" string="Prévisualiser" class="btn btn-link" icon="fa-eye"/>
+                                    </div>
+                                    <label for="autorisation_proprietaire_filename" string="Autorisation propriétaire"/>
+                                    <div class="o_row">
+                                        <field name="autorisation_proprietaire_filename" placeholder="Nom du fichier" invisible="1"/>
+                                        <field name="autorisation_proprietaire_attachment_id" widget="binary" filename="autorisation_proprietaire_filename" options="{'accepted_file_extensions': '.pdf,.jpg,.jpeg,.png'}"/>
+                                        <button name="action_preview_autorisation_proprietaire" type="object" string="Prévisualiser" class="btn btn-link" icon="fa-eye"/>
+                                    </div>
+                                    <label for="bail_location_filename" string="Bail location"/>
+                                    <div class="o_row">
+                                        <field name="bail_location_filename" placeholder="Nom du fichier" invisible="1"/>
+                                        <field name="bail_location_attachment_id" widget="binary" filename="bail_location_filename" options="{'accepted_file_extensions': '.pdf,.jpg,.jpeg,.png'}"/>
+                                        <button name="action_preview_bail_location" type="object" string="Prévisualiser" class="btn btn-link" icon="fa-eye"/>
+                                    </div>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_zenith_caracteristique_technique_tree" model="ir.ui.view">
+        <field name="name">zenith.caracteristique.technique.tree</field>
+        <field name="model">zenith.caracteristique.technique</field>
+        <field name="arch" type="xml">
+            <list string="Caractéristiques Techniques">
+                <field name="lead_id"/>
+                <field name="date_controle"/>
+                <field name="ces_size_in_litre"/>
+                <field name="ces_nb_captor"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_zenith_caracteristique_technique_search" model="ir.ui.view">
+        <field name="name">zenith.caracteristique.technique.search</field>
+        <field name="model">zenith.caracteristique.technique</field>
+        <field name="arch" type="xml">
+            <search string="Rechercher des caractéristiques techniques">
+                <field name="lead_id"/>
+                <field name="date_controle"/>
+                <filter string="Ce mois" name="this_month" domain="[('date_controle', '&gt;=', (context_today() + relativedelta(day=1)).strftime('%Y-%m-%d')), ('date_controle', '&lt;=', (context_today() + relativedelta(months=1, day=1, days=-1)).strftime('%Y-%m-%d'))]"/>
+                <group expand="0" string="Regrouper par">
+                    <filter string="Opportunité" name="group_by_lead" domain="[]" context="{'group_by': 'lead_id'}"/>
+                    <filter string="Date de contrôle" name="group_by_date" domain="[]" context="{'group_by': 'date_controle:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_zenith_caracteristique_technique" model="ir.actions.act_window">
+        <field name="name">Caractéristiques Techniques</field>
+        <field name="res_model">zenith.caracteristique.technique</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_zenith_caracteristique_technique_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer une nouvelle caractéristique technique
+            </p>
+            <p>
+                Les caractéristiques techniques permettent de documenter les spécifications et documents associés à une opportunité.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_zenith_caracteristique_technique"
+              name="Caractéristiques Techniques"
+              parent="crm.crm_menu_config"
+              action="action_zenith_caracteristique_technique"
+              sequence="20"/>
+
+    <!-- Vue form spécifique pour afficher l'image en popup -->
+    <record id="view_attachment_image_form" model="ir.ui.view">
+        <field name="name">ir.attachment.image.form</field>
+        <field name="model">ir.attachment</field>
+        <field name="arch" type="xml">
+            <form string="Image">
+                <div style="text-align: center;">
+                    <field name="datas" widget="image" options="{'size': [800, 600]}"/>
+                </div>
+                <footer>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action pour afficher l'image en popup -->
+    <record id="action_view_attachment_image" model="ir.actions.act_window">
+        <field name="name">View Image</field>
+        <field name="res_model">ir.attachment</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'create': False, 'edit': False}</field>
+        <field name="view_id" ref="view_attachment_image_form"/>
+    </record>
+</odoo>

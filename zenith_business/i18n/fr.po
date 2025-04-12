@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e-20241126\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-17 17:16+0000\n"
-"PO-Revision-Date: 2025-03-17 17:16+0000\n"
+"POT-Creation-Date: 2025-03-17 18:02+0000\n"
+"PO-Revision-Date: 2025-03-17 18:02+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -498,6 +498,11 @@ msgid "Firstname"
 msgstr "Prénom(s)"
 
 #. module: zenith_business
+#: model:ir.model.fields,field_description:zenith_business.field_sale_order_template__fiscal_position_id
+msgid "Fiscal Position"
+msgstr "Position fiscale"
+
+#. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_res_city__message_follower_ids
 msgid "Followers"
 msgstr ""
@@ -542,6 +547,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
 msgid "Immat :"
 msgstr ""
+
+#. module: zenith_business
+#: model:ir.model.fields,field_description:zenith_business.field_sale_order__installation_type
+msgid "Installation type"
+msgstr "Type d'installation"
 
 #. module: zenith_business
 #: model:ir.model.fields,field_description:zenith_business.field_res_city__message_is_follower
@@ -713,6 +723,11 @@ msgid "Name"
 msgstr "Nom"
 
 #. module: zenith_business
+#: model:ir.model.fields.selection,name:zenith_business.selection__sale_order__installation_type__new
+msgid "New"
+msgstr "Neuf"
+
+#. module: zenith_business
 #: model:ir.model.fields.selection,name:zenith_business.selection__sale_order__professional_use__no
 msgid "No"
 msgstr "Non"
@@ -761,14 +776,19 @@ msgid "Number of messages with delivery error"
 msgstr ""
 
 #. module: zenith_business
+#: model:ir.model.fields.selection,name:zenith_business.selection__sale_order__installation_type__old
+msgid "Old"
+msgstr "Ancien"
+
+#. module: zenith_business
 #. odoo-python
 #: code:addons/zenith_business/models/sale_order.py:0
 msgid ""
 "Only one product of type 'Scooter Sale LOA' is allowed. Please correct your "
 "selection before generating the rental contract."
 msgstr ""
-"Un seul produit de type 'Scooter Vente LOA' est autorisé. Veuillez corriger votre "
-"sélection avant de générer le contrat de location."
+"Un seul produit de type 'Scooter Vente LOA' est autorisé. Veuillez corriger "
+"votre sélection avant de générer le contrat de location."
 
 #. module: zenith_business
 #: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
@@ -829,6 +849,11 @@ msgstr "Usage professionnel"
 #: model_terms:ir.ui.view,arch_db:zenith_business.rental_document
 msgid "Périodicité : Cash"
 msgstr ""
+
+#. module: zenith_business
+#: model:ir.model,name:zenith_business.model_sale_order_template
+msgid "Quotation Template"
+msgstr "Modèle de devis"
 
 #. module: zenith_business
 #: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit
@@ -964,6 +989,11 @@ msgstr ""
 "Le document a déjà été envoyé pour signature.\n"
 "Pour renvoyer le mail à un acteur, cliquez sur « Réessayer ».\n"
 "Sinon, cliquez sur « Générer » pour créer un nouveau document et l'envoyer à nouveau."
+
+#. module: zenith_business
+#: model:ir.model.fields,help:zenith_business.field_sale_order_template__fiscal_position_id
+msgid "The fiscal position used while annotating."
+msgstr "La position fiscale utilisée lors de l'annotation."
 
 #. module: zenith_business
 #: model_terms:ir.ui.view,arch_db:zenith_business.view_order_form_inherit

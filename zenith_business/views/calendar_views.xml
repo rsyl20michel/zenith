@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+    <record id="view_calendar_event_calendar" model="ir.ui.view">
+      <field name="name">view.calendar.event.calendar.inherit.calendar</field>
+      <field name="model">calendar.event</field>
+      <field name="inherit_id" ref="calendar.view_calendar_event_calendar"/>
+      <field name="arch" type="xml">
+        <xpath expr="//calendar" position="attributes">
+          <attribute name="color">type_of_opportunity_color</attribute>
+        </xpath>
+        <xpath expr="//calendar" position="inside">
+          <field name="opportunity_id" filters="1" invisible="1"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

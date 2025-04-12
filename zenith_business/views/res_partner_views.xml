@@ -2,23 +2,44 @@
 <odoo>
   <data>
 
-    <!-- View Partner Form -->
     <record id="view_partner_form_inherit" model="ir.ui.view">
       <field name="name">res.partner.form.inherit</field>
       <field name="model">res.partner</field>
       <field name="inherit_id" ref="base.view_partner_form"/>
       <field name="arch" type="xml">
-        <xpath expr="//div[@name='vat_vies_container']" position="after">
-          <field name="city_id" options='{"no_create": True}'/>
-        </xpath>
-        <field name="parent_id" position="before">
-          <field name="firstname" placeholder="Firstname"
-                 required="company_type  == 'person'"
-                 invisible="company_type == 'company'"/>
-          <field name="lastname" placeholder="Family name"
-                 required="company_type == 'person'"
-                 invisible="company_type == 'company'"/>
+
+        <!-- Ajout de city_id juste au-dessus de city -->
+        <field name="city" position="before">
+          <field name="city_id" options='{"no_create": True}' placeholder="Sélectionner une ville"/>
         </field>
+
+        <!-- Champs nom/prénom pour personne physique -->
+        <field name="parent_id" position="before">
+          <field name="firstname" placeholder="Firstname" required="company_type  == 'person'" invisible="company_type == 'company'"/>
+          <field name="lastname" placeholder="Family name" required="company_type == 'person'" invisible="company_type == 'company'"/>
+        </field>
+
+        <!-- Email & Mobile obligatoires -->
+        <field name="email" position="attributes">
+          <attribute name="required">1</attribute>
+        </field>
+        <field name="mobile" position="attributes">
+          <attribute name="required">1</attribute>
+        </field>
+
+
+        <!-- Déplacer siret juste après le champ TVA -->
+
+        <xpath expr="//div[@name='vat_vies_container']" position="after">
+          <field name="siret" invisible="not is_company"/>
+
+        </xpath>
+
+        <!-- Ajout du champ company_ids juste après les tags -->
+        <field name="category_id" position="after">
+          <field name="company_ids" widget="many2many_tags" options="{'no_create': True}" placeholder="Sélectionner les sociétés"/>
+        </field>
+
       </field>
     </record>
 

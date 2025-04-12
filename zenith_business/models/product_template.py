@@ -28,3 +28,9 @@ class ProductTemplate(models.Model):
     usage_type = fields.Selection([
         ('scooter_sale_loa', 'Scooter Sale LOA'),
     ], string="Usage Type")
+
+    zen_location_id = fields.Many2one(
+        'stock.location',
+        string="Emplacement Zenith",
+        help="Emplacement physique simplifié du produit (stock.location)",
+    )

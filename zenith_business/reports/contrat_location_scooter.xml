@@ -95,7 +95,7 @@
               </table>
             </div>
 
-            <div class="row mb-4" style="border: 1px solid black; padding: 10px; text-align: justify;">
+            <div class="row mb-4" style="page-break-before: always; border: 1px solid black; padding: 10px; text-align: justify;">
               <div class="col-12">
                 <p>Le prix de vente final au terme de la location est de 0 euros (inclus frais de carte grise et
                   éventuelles taxes)
@@ -120,7 +120,7 @@
               </div>
             </div>
 
-            <div class="row mb-4" style="page-break-before: always; border: 1px solid black; padding: 10px;">
+            <div class="row mb-4" style="border: 1px solid black; padding: 10px;">
               <p>Modalité de paiement des échéances : CB (option 4X sans frais) ou espèces.</p>
             </div>
 
@@ -324,7 +324,7 @@
               <tr style="height: 120px;">
                 <td style="width: 50%; text-align: center; vertical-align: top;"/>
                 <td style="width: 50%; text-align: center; vertical-align: middle;">
-                  <img src="/zenith_business/static/src/img/signature.png" width="25%"/>
+                  <img src="/zenith_business/static/src/img/signature.png" width="100%"/>
                 </td>
               </tr>
               <tr>
@@ -345,6 +345,31 @@
               </tr>
             </table>
 
+            <!-- Saut de page -->
+            <div style="page-break-before: always;">
+              <h3 class="text-center mb-4">FORMULAIRE DE RENONCIATION AU DROIT DE RÉTRACTATION</h3>
+
+              <div class="mb-3" style="text-align: justify;">
+                <p>Conformément à l'article L. 221-28 du Code de la consommation, le Client reconnaît expressément que l’exécution de la prestation/l’accès au produit (scooter) commencera immédiatement après la validation de sa commande.</p>
+                <p>En conséquence, le Client accepte expressément de renoncer à son droit de rétractation de 14 jours, en signant ce formulaire avant la livraison du scooter selon les termes du contrat défini.</p>
+              </div>
+
+              <div class="mb-3">
+                <p><strong>Déclaration du Client :</strong></p>
+                <p>Je soussigné(e), <span t-field="o.partner_id.name"/>, reconnais avoir été informé(e) de mon droit de rétractation de 14 jours conformément à l'article L. 221-18 du Code de la consommation.</p>
+                <p>Je demande néanmoins la livraison immédiate de mon scooter et renonce expressément à mon droit de rétractation.</p>
+              </div>
+
+              <div class="mb-3">
+                <p>Fait à : Mamoudzou, le </p>
+              </div>
+
+              <div class="mb-3">
+                <p><strong>Signature du Client :</strong></p>
+                <p>(Signé précédé de la mention « Lu et approuvé »)</p>
+                <p>Lu et approuvé</p>
+              </div>
+            </div>
 
             <!-- Saut de page -->
             <div style="page-break-before: always;">
@@ -444,7 +469,7 @@
   <record id="report_contract_rental" model="ir.actions.report">
     <field name="name">Contrat de Location Scooter</field>
     <field name="model">sale.order</field>
-    <field name="report_type">qweb-html</field>
+    <field name="report_type">qweb-pdf</field>
     <field name="report_name">zenith_business.rental_document</field>
     <field name="report_file">zenith_business.rental_document</field>
     <field name="binding_model_id" eval="False"/>
