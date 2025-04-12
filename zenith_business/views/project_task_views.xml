@@ -1,0 +1,91 @@
+<odoo>
+  <record id="view_task_form2_inherit_add_button" model="ir.ui.view">
+    <field name="name">project.task.form.planifier_intervention</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="project.view_task_form2"/>
+    <field name="arch" type="xml">
+      <xpath expr="//div[@name='button_box']" position="inside">
+        <button name="action_plan_site_service"
+                type="object"
+                string="Planifier une intervention"
+                class="oe_stat_button"
+                icon="fa-wrench"
+                invisible="project_id != 15"/>
+      </xpath>
+
+      <xpath expr="//field[@name='partner_id']" position="before">
+        <field name="type_of_opportunity_badge" readonly="1" nolabel="1"/>
+        <field name="opportunity_id" groups="industry_fsm.group_fsm_manager"/>
+      </xpath>
+
+      <xpath expr="//notebook" position="before">
+        <div class="oe_button_box" name="caracteristique_button_box">
+          <button name="action_view_caracteristique_technique" type="object" string="Caractéristique technique"
+                  class="oe_highlight" invisible="1"/>
+        </div>
+      </xpath>
+
+    </field>
+  </record>
+
+  <!-- GANTT -->
+  <record id="fsm_project_task_view_gantt_colored" model="ir.ui.view">
+    <field name="name">fsm.project.task.gantt.color</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="industry_fsm.fsm_project_task_view_gantt"/>
+    <field name="arch" type="xml">
+      <gantt position="attributes">
+        <attribute name="color">color</attribute>
+      </gantt>
+    </field>
+  </record>
+
+  <record id="project_task_view_gantt_colored" model="ir.ui.view">
+    <field name="name">project.task.view.gantt.colored</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="project_enterprise.project_task_view_gantt"/>
+    <field name="arch" type="xml">
+      <gantt position="attributes">
+        <attribute name="color">color</attribute>
+      </gantt>
+    </field>
+  </record>
+
+  <!-- KANBAN -->
+  <record id="view_task_kanban_fsm_inherit_type_badge" model="ir.ui.view">
+    <field name="name">fsm.project.task.kanban.inherit.type.badge</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="industry_fsm.project_task_in_project_view_kanban"/>
+    <field name="arch" type="xml">
+
+      <xpath expr="//kanban" position="inside">
+        <field name="type_of_opportunity"/>
+        <field name="type_of_opportunity_color"/>
+      </xpath>
+
+      <xpath expr="//field[@name='name']" position="before">
+        <t t-if="record.type_of_opportunity.value and record.type_of_opportunity_color.raw_value">
+          <div class="mb-1">
+            <span
+                t-attf-style="background-color: {{record.type_of_opportunity_color.raw_value}}; color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; display: inline-block;">
+              <t t-esc="record.type_of_opportunity.value"/>
+            </span>
+          </div>
+        </t>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="project_task_view_gantt" model="ir.ui.view">
+    <field name="name">project.task.view.gantt</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="project_enterprise.project_task_view_gantt"/>
+    <field name="arch" type="xml">
+      <field name="partner_id" position="after">
+        <field name="type_of_opportunity_badge"/>
+        <field name="partner_zip"/>
+        <field name="partner_city"/>
+      </field>
+    </field>
+  </record>
+</odoo>

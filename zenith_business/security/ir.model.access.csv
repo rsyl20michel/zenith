@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_res_city,res.city,model_res_city,,1,1,1,1
+access_zenith_caracteristique_technique,zenith.caracteristique.technique,model_zenith_caracteristique_technique,base.group_user,1,1,1,1
+access_zenith_image_viewer_wizard,zenith.image.viewer.wizard,model_zenith_image_viewer_wizard,base.group_user,1,1,1,1

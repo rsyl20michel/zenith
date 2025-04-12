@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_saleorder_customizations" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@name='expiration_date']/strong" position="replace">
+            <strong>Date d'expiration</strong>
+        </xpath>
+
+        <xpath expr="//div[@t-if='doc.user_id.name']/strong" position="replace">
+            <strong>Commercial</strong>
+        </xpath>
+        
+        <xpath expr="//span[@name='order_note']" position="after">
+            <div class="mt16" style="border: 1px solid #0E0E0E; border-radius: 6px; padding: 16px; min-height: 5cm; page-break-inside: avoid;">
+                <div class="row">
+                    <div class="col-6">
+                        <p><strong>Devis accepté le :</strong> ........../............/............</p>
+                        <p class="mt32"><strong>Signature :</strong></p>
+                    </div>
+                    <div class="col-6" style="padding-left: 2cm;">
+                        <p><strong>À :</strong> ..................................................</p>
+                    </div>
+                </div>
+            </div>
+             <div t-if="doc.company_id.id in [3, 4, 5, 6]" class="mt8" style="text-align: center; font-weight: bold;">
+                <p>* Tarif valable sous réserve de la faisabilité par un technicien *</p>
+            </div>
+        </xpath>
+    </template>
+</odoo>

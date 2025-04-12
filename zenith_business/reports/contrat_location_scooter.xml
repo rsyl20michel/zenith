@@ -4,10 +4,11 @@
     <t t-call="web.html_container">
       <t t-foreach="docs" t-as="o">
         <t t-call="web.external_layout">
-          <div class="page">
-            <h2 class="text-center mb-4">CONTRAT DE LOCATION DE SCOOTER AVEC ACHAT À TERME</h2>
+          <div class="page"
+               style="font-size: 0.76em; font-family: 'Lato', 'Open Sans', 'Helvetica', Sans; line-height: 1.5em;">
+            <h3 class="text-center mb-4">CONTRAT DE LOCATION DE SCOOTER AVEC ACHAT À TERME</h3>
 
-            <h4>Article 1 : Parties contractantes</h4>
+            <h5>Article 1 : Parties contractantes</h5>
             <div class="row mb-4" style="border: 1px solid black; padding: 10px;">
               <div class="col-6">
                 <strong>Bailleur</strong>
@@ -20,7 +21,7 @@
                 <br/>
                 <strong>SIRET : 935 360 529 00017</strong>
               </div>
-              <div class="col-6" style="border-left: 1px solid black;">
+              <div class="col-6" style="border-left: 1px solid black; padding-left: 10px;">
                 <strong>Locataire</strong>
                 <br/>
                 Nom :
@@ -48,9 +49,9 @@
               <t t-esc="(o.date_order + datetime.timedelta(days=15)).strftime('%d/%m/%Y')"/>
             </p>
 
-            <h4>Article 2 : Description caractéristiques de la location avec achat à terme</h4>
+            <h5>Article 2 : Description caractéristiques de la location avec achat à terme</h5>
             <div class="row mb-4" style="border: 1px solid black; padding: 10px;">
-              <table class="table table-borderless mb-4">
+              <table class="table table-sm table-borderless mb-4">
                 <tr>
                   <td colspan="2">
                     <strong>Bien à financer : scooter</strong>
@@ -66,13 +67,13 @@
                 </tr>
                 <tr>
                   <td>1ère mise en circulation :
-                    <span t-field="o.date_order" t-options='{"format": "dd/MM/yyyy"}'/>
+                    <span t-field="o.date_order" t-options="{&quot;format&quot;: &quot;dd/MM/yyyy&quot;}"/>
                   </td>
                   <td>Usage professionnel :
                     <span t-field="o.professional_use"/>
                   </td>
                   <td colspan="2">Immat :
-                    <!--                  <span t-field="o.x_immatriculation"/>-->
+                    <span t-esc="o.get_registration()"/>
                   </td>
                 </tr>
                 <tr>
@@ -94,38 +95,43 @@
               </table>
             </div>
 
-            <div class="row mb-4" style="border: 1px solid black; padding: 10px;">
-              <p>Le prix de vente final au terme de la location est de 0 euros (inclus frais de carte grise et
-                éventuelles taxes)
-              </p>
-              <p>- Coût total des loyers hors assurances :
-                <span t-field="o.amount_total"/>
-                TTC
-              </p>
-              <p>- Coût total à terme du contrat :
-                <span t-field="o.amount_total"/>
-                TTC
-              </p>
-              <p>La souscription d'une assurance est obligatoire (cf. article 6). Les frais d'immatriculation sont à
-                votre charge.
-              </p>
-              <p>Clause de réserve de propriété : le bailleur se réserve exclusivement la propriété dudit bien jusqu'au
-                paiement intégral des loyers et pendant la durée du contrat. Le locataire assume tous les risques dès la
-                livraison du Véhicule.
-              </p>
+            <div class="row mb-4" style="page-break-before: always; border: 1px solid black; padding: 10px; text-align: justify;">
+              <div class="col-12">
+                <p>Le prix de vente final au terme de la location est de 0 euros (inclus frais de carte grise et
+                  éventuelles taxes)
+                </p>
+                <p>- Coût total des loyers hors assurances :
+                  <span t-field="o.amount_total"/>
+                  TTC
+                </p>
+                <p>- Coût total à terme du contrat :
+                  <span t-field="o.amount_total"/>
+                  TTC
+                </p>
+                <p>La souscription d'une assurance est obligatoire (cf. article 6). Les frais d'immatriculation sont à
+                  votre charge.
+                </p>
+                <p>Clause de réserve de propriété : le bailleur se réserve exclusivement la propriété dudit bien
+                  jusqu'au
+                  paiement intégral des loyers et pendant la durée du contrat. Le locataire assume tous les risques dès
+                  la
+                  livraison du Véhicule.
+                </p>
+              </div>
             </div>
 
             <div class="row mb-4" style="border: 1px solid black; padding: 10px;">
               <p>Modalité de paiement des échéances : CB (option 4X sans frais) ou espèces.</p>
             </div>
 
-            <h4>Article 3 : Modalités de remboursements</h4>
-            <p class="mb-4">Le loyer est payable en une fois au plus tard le jour de la livraison. Le mode de règlement
+            <h5>Article 3 : Modalités de remboursements</h5>
+            <p class="mb-4" style="text-align: justify;">Le loyer est payable en une fois au plus tard le jour de la
+              livraison. Le mode de règlement
               choisi pour le paiement du loyer est la Carte bancaire, le virement ou l'espèce.
             </p>
 
-            <h4>Article 4 : Exécution du contrat</h4>
-            <div class="mb-4">
+            <h5>Article 4 : Exécution du contrat</h5>
+            <div class="mb-4" style="text-align: justify;">
               <p>Le Bailleur s'engage sur la période de location à maintenir le véhicule en bon état de marche. Sont
                 exclus les éléments dits d'usure (pneus, freins) et toutes réparations inhérentes à une mauvaise
                 utilisation du véhicule de la part du locataire (voir notice explicative).
@@ -141,8 +147,8 @@
               </p>
             </div>
 
-            <h4>Article 5 : Propriété du Véhicule</h4>
-            <div class="mb-4">
+            <h5>Article 5 : Propriété du Véhicule</h5>
+            <div class="mb-4" style="text-align: justify;">
               <p>Le Bailleur est et reste propriétaire du véhicule pendant toute la durée de la location. En cas de
                 saisie notamment, vous ferez le nécessaire pour en obtenir la mainlevée à vos frais. Vous vous engagez à
                 faire respecter ce droit de propriété et informerez immédiatement le bailleur de toute remise en cause
@@ -155,8 +161,8 @@
               </p>
             </div>
 
-            <h4>Article 6 : Assurances</h4>
-            <div class="mb-4">
+            <h5>Article 6 : Assurances</h5>
+            <div class="mb-4" style="text-align: justify;">
               <p>A compter de la livraison du Véhicule, vous êtes en votre qualité de gardien responsable de tous les
                 dommages causés au Véhicule. En conséquence, vous êtes tenus de souscrire auprès d’une compagnie
                 d’assurance pour toute la durée de la location une police couvrant votre responsabilité civile illimitée
@@ -170,14 +176,14 @@
               </p>
             </div>
 
-            <h4>Article 7 : Dépôt de garantie</h4>
-            <div class="mb-4">
+            <h5>Article 7 : Dépôt de garantie</h5>
+            <div class="mb-4" style="text-align: justify;">
               <p>Le dépôt de garantie ne porte pas intérêt.
               </p>
             </div>
 
-            <h4>Article 8 : Utilisation</h4>
-            <div class="mb-4">
+            <h5>Article 8 : Utilisation</h5>
+            <div class="mb-4" style="text-align: justify;">
               <p>Vous vous engagez à n’utiliser le véhicule que sur l’île de Mayotte. Vous maintiendrez le véhicule en
                 parfait état de marche conformément aux impératifs techniques fixés par le constructeur, l'utiliserez en
                 personne raisonnable.
@@ -195,8 +201,8 @@
               </p>
             </div>
 
-            <h4>Article 9 : Résiliation de plein droit du contrat en cas de défaillance du locataire :</h4>
-            <div class="mb-4">
+            <h5>Article 9 : Résiliation de plein droit du contrat en cas de défaillance du locataire :</h5>
+            <div class="mb-4" style="text-align: justify;">
               <p>Outre ce qui est prévu à l’article 4, le contrat de location pourra être résilié de plein droit en cas
                 de perte du véhicule, ou de sa non-restitution aux date et lieu fixés au terme du contrat,
                 d’inexactitude avérée d’une information essentielle communiquée, de défaut de paiement du loyer, du
@@ -214,8 +220,8 @@
               </p>
             </div>
 
-            <h4>Article 10 : Données personnelles</h4>
-            <div class="mb-4">
+            <h5>Article 10 : Données personnelles</h5>
+            <div class="mb-4" style="text-align: justify;">
               <p>Dans le cadre de votre relation avec notre société, nous allons utiliser vos données pour l’exécution
                 du présent contrat. Nous sommes donc susceptibles d’utiliser vos données dans le cadre de la gestion des
                 amendes et des contentieux (communication à un huissier, un avocat, aux juridictions), ou afin de se
@@ -240,8 +246,8 @@
               </p>
             </div>
 
-            <h4>Article 11 : Formation du contrat</h4>
-            <div class="mb-4">
+            <h5>Article 11 : Formation du contrat</h5>
+            <div class="mb-4" style="text-align: justify;">
               <p>
                 Cette offre peut devenir votre contrat de location avec achat à terme dans les conditions suivantes :
               </p>
@@ -270,8 +276,8 @@
               </p>
             </div>
 
-            <h4>Article 12 : Médiation et Contentieux</h4>
-            <div class="mb-4">
+            <h5>Article 12 : Médiation et Contentieux</h5>
+            <div class="mb-4" style="text-align: justify;">
               <p>En cas de contentieux, le consommateur peut recourir à la procédure de médiation prévue à l'article L.
                 316-1 du code monétaire et financier et ses modalités d'accès ;
               </p>
@@ -314,18 +320,18 @@
               </ul>
             </div>
 
-            <table style="width: 100%; border-collapse: collapse;">
+            <table class="table table-sm table-borderless" style="width: 100%; border-collapse: collapse;">
               <tr style="height: 120px;">
-                <td style="width: 50%; text-align: center; vertical-align: top;"></td>
+                <td style="width: 50%; text-align: center; vertical-align: top;"/>
                 <td style="width: 50%; text-align: center; vertical-align: middle;">
-                  <img src="/zenith_business/static/src/img/signature.png" width="25%"/>
+                  <img src="/zenith_business/static/src/img/signature.png" width="100%"/>
                 </td>
               </tr>
               <tr>
                 <td style="width: 50%; text-align: center; vertical-align: top;">
                   <p class="mt-2">Le locataire</p>
                   <p>Signé le :
-                    <span t-field="o.date_order" t-options='{"format": "dd/MM/yyyy"}'/>
+                    <span style="color: white;">AAAA-MM-DD</span>
                   </p>
                   <p>À : Mamoudzou</p>
                 </td>
@@ -339,6 +345,31 @@
               </tr>
             </table>
 
+            <!-- Saut de page -->
+            <div style="page-break-before: always;">
+              <h3 class="text-center mb-4">FORMULAIRE DE RENONCIATION AU DROIT DE RÉTRACTATION</h3>
+
+              <div class="mb-3" style="text-align: justify;">
+                <p>Conformément à l'article L. 221-28 du Code de la consommation, le Client reconnaît expressément que l’exécution de la prestation/l’accès au produit (scooter) commencera immédiatement après la validation de sa commande.</p>
+                <p>En conséquence, le Client accepte expressément de renoncer à son droit de rétractation de 14 jours, en signant ce formulaire avant la livraison du scooter selon les termes du contrat défini.</p>
+              </div>
+
+              <div class="mb-3">
+                <p><strong>Déclaration du Client :</strong></p>
+                <p>Je soussigné(e), <span t-field="o.partner_id.name"/>, reconnais avoir été informé(e) de mon droit de rétractation de 14 jours conformément à l'article L. 221-18 du Code de la consommation.</p>
+                <p>Je demande néanmoins la livraison immédiate de mon scooter et renonce expressément à mon droit de rétractation.</p>
+              </div>
+
+              <div class="mb-3">
+                <p>Fait à : Mamoudzou, le </p>
+              </div>
+
+              <div class="mb-3">
+                <p><strong>Signature du Client :</strong></p>
+                <p>(Signé précédé de la mention « Lu et approuvé »)</p>
+                <p>Lu et approuvé</p>
+              </div>
+            </div>
 
             <!-- Saut de page -->
             <div style="page-break-before: always;">
@@ -355,45 +386,64 @@
               </div>
 
               <div class="mb-3">
-                <p>📅 Date : _____ /_____ /_____</p>
+                <p>
+                  <i class="fa fa-calendar me-2"></i>
+                  Date : _____ /_____ /_____
+                </p>
               </div>
 
-              <div class="mb-3">
-                <p>📌 Je soussigné(e), _________________________________ vous notifie par la présente ma rétractation du
+              <div class="mb-3" style="text-align: justify;">
+                <p>
+                  <i class="fa fa-thumb-tack me-2"></i>
+                  Je soussigné(e), _________________________________ vous notifie par la présente ma rétractation du
                   contrat portant sur la vente du bien / prestation de service ci-dessous :
                 </p>
               </div>
 
               <div class="mb-3">
-                <p>📌 Numéro de commande ou contrat :
+                <p>
+                  <i class="fa fa-thumb-tack me-2"></i>
+                  Numéro de commande ou contrat :
                   <span t-field="o.name"/>
                 </p>
               </div>
 
-              <div class="mb-3">
-                <p>📌 Date de la commande ou de la conclusion du contrat : _____ /_____ /_____</p>
+              <div class="mb-3" style="text-align: justify;">
+                <p>
+                  <i class="fa fa-thumb-tack me-2"></i>
+                  Date de la commande ou de la conclusion du contrat : _____ /_____ /_____
+                </p>
               </div>
 
               <div class="mb-3">
-                <p>📌 Nom et prénom du consommateur :
+                <p>
+                  <i class="fa fa-thumb-tack me-2"></i>
+                  Nom et prénom du consommateur :
                   <span t-field="o.partner_id.name"/>
                 </p>
               </div>
 
               <div class="mb-3">
-                <p>📌 Adresse du consommateur :
+                <p>
+                  <i class="fa fa-thumb-tack me-2"></i>
+                  Adresse du consommateur :
                   <span t-field="o.partner_id.street"/>
                   <span t-field="o.partner_id.street2"/>
                 </p>
               </div>
 
               <div class="mb-3">
-                <p>✍️Signature du consommateur :</p>
-                <p>✏️_____________________________________________________________</p>
+                <p><i class="fa fa-pencil me-2"></i>️Signature du consommateur :
+                </p>
+                <p><i class="fa fa-pencil me-2"></i>️_____________________________________________________________
+                </p>
               </div>
 
               <div class="mb-4">
-                <p class="font-weight-bold">📌 Mode de remboursement souhaité :</p>
+                <p class="font-weight-bold">
+                  <i class="fa fa-thumb-tack me-2"></i>
+                  Mode de remboursement souhaité :
+                </p>
                 <div class="ml-4">
                   <p>☐ Virement bancaire (joindre un RIB)</p>
                   <p>☐ Chèque</p>
@@ -401,8 +451,10 @@
                 </div>
               </div>
 
-              <div class="mt-4">
-                <p class="font-italic">ℹRappel : Conformément à l'article L. 221-18 du Code de la consommation, ce
+              <div class="mt-4" style="text-align: justify;">
+                <p class="font-italic">
+                  <i class="fa fa-info me-2"></i>
+                  Rappel : Conformément à l'article L. 221-18 du Code de la consommation, ce
                   formulaire doit être envoyé dans un délai de 14 jours à compter de la réception du bien ou de la
                   conclusion du contrat de prestation de service.
                 </p>
@@ -414,13 +466,13 @@
     </t>
   </template>
 
-  <record id="action_report_contrat_location_scooter" model="ir.actions.report">
+  <record id="report_contract_rental" model="ir.actions.report">
     <field name="name">Contrat de Location Scooter</field>
     <field name="model">sale.order</field>
-    <field name="report_type">qweb-qweb</field>
+    <field name="report_type">qweb-pdf</field>
     <field name="report_name">zenith_business.rental_document</field>
     <field name="report_file">zenith_business.rental_document</field>
-    <field name="binding_model_id" ref="sale.model_sale_order"/>
+    <field name="binding_model_id" eval="False"/>
     <field name="binding_type">report</field>
   </record>
 </odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <t t-name="AttendeeCalendarCommonRenderer.event" t-inherit="calendar.AttendeeCalendarCommonRenderer.event"
+     t-inherit-mode="extension">
+    <xpath expr="//span[@t-esc='title']" position="after">
+      <span class="float-end" t-esc="city"/>
+    </xpath>
+  </t>
+</templates>

@@ -10,9 +10,12 @@
       <field name="arch" type="xml">
         <field name="payment_term_id" position="after">
           <field name="professional_use"/>
+          <field name="installation_type"/>
+          <field name="fiscal_position_id"/>
+          <field name="allow_rental_contract" invisible="1"/>
         </field>
         <xpath expr="//page[@name='other_information']" position="after">
-          <page name="documents" string="Documents">
+          <page name="documents" string="Documents" invisible="not allow_rental_contract">
             <group>
               <field name="rental_contract_template_id" invisible="1"/>
               <label for="rental_contract"/>
@@ -39,7 +42,7 @@
                           type="object"/>
                   <button string="Send for signature" class="btn btn-outline-primary oe_investis_dom oe_generate mx-1"
                           name="send_rental_contract" icon="fa-envelope"
-                          confirm="Are you sure you want to send the document? This action can take few seconds."
+                          confirm="Are you sure you want to send the document?"
                           invisible="rental_contract or not rental_contract_template_id or is_signature_sent"
                           type="object"/>
                   <button string="Send for signature" class="btn btn-outline-primary oe_investis_dom oe_generate mx-1"
@@ -49,6 +52,20 @@
                           type="object"/>
                 </span>
               </div>
+            </group>
+            <group string="Signers" invisible="signature_count == 0">
+              <field name="request_item_ids" nolabel="1" readonly="1" colspan="2">
+                <list decoration-muted="state in ('draft')" decoration-info="state in ('sent')"
+                      decoration-success="state in ('completed')">
+                  <field name="partner_id"/>
+                  <field name="signer_email"/>
+                  <field name="state"/>
+                  <button name="send_signature_accesses" string="Retry" type="object" icon="fa-repeat text-success"
+                          invisible="state not in ('draft','sent')"
+                          confirm="This will send the document to the recipient. Do you still want to proceed ?"
+                          context="{'retry_sending_signature': 1}"/>
+                </list>
+              </field>
             </group>
           </page>
         </xpath>

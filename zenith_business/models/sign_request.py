@@ -41,7 +41,7 @@ class SignRequest(models.Model):
             self._generate_completed_document()
 
         # Get picking linked to the sign request
-        picking = self.env['stock.picking'].sudo().search([
+        picking = self.env['sale.order'].sudo().search([
             ('rental_contract_template_id', '=', self.template_id.id)
         ], limit=1)
 

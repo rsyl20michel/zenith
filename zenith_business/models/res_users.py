@@ -35,16 +35,9 @@ class ResUsers(models.Model):
         Generate document PDF
         :return:
         """
-        pdf = self.env['ir.actions.report'].sudo()._render_qweb_pdf(report_id, res_ids=record_id)[0]
-        pdf = base64.b64encode(pdf)
-
-        # TODO: for now, PDF files without extension are recognized as application/octet-stream;base64
-        try:
-            file_pdf = PdfFileReader(io.BytesIO(base64.b64decode(pdf)), strict=False, overwriteWarnings=False)
-        except Exception as e:
-            raise UserError(_("This file cannot be read. Is it a valid PDF?"))
+        pdf_content, __ = self.env['ir.actions.report'].sudo()._render_qweb_pdf(report_id, res_ids=record_id)
         attachment = self.env['ir.attachment'].create(
-            {'name': reference, 'datas': pdf, 'mimetype': 'application/pdf;base64'})
+            {'name': '%s.pdf' % reference, 'raw': pdf_content, 'type': 'binary'})
         template = self.env['sign.template'].create(
             {'attachment_id': attachment.id, 'favorited_ids': [(4, self.env.user.id)], 'active': True})
         return template

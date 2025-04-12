@@ -1,0 +1,11 @@
+.o_gantt_view .o_gantt_renderer {
+
+  // ================================ Pills =================================
+  // ========================================================================
+  .o_gantt_pill_wrapper {
+    min-height: 0; /* utile en grid pour forcer le respect du contenu */
+    overflow: hidden; /* ou visible, selon besoin */
+    word-break: break-word;
+  }
+
+}

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Recherche -->
+        <record id="view_crm_lead_search_inherit_opportunities" model="ir.ui.view">
+            <field name="name">crm.lead.search.inherit.opportunities</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='close_date']" position="after">
+                    <filter name="filter_type_ba" string="Type : Brasseurs d'air" domain="[('type_of_opportunities', '=', 'ba')]"/>
+                    <filter name="filter_type_ces" string="Type : Chauffe-eau" domain="[('type_of_opportunities', '=', 'ces')]"/>
+                    <filter name="filter_type_iso" string="Type : Isolation" domain="[('type_of_opportunities', '=', 'iso')]"/>
+                    <filter name="filter_type_pic" string="Type : Programmateurs" domain="[('type_of_opportunities', '=', 'pic')]"/>
+                    <filter name="filter_type_led" string="Type : Leds" domain="[('type_of_opportunities', '=', 'led')]"/>
+                    <filter name="filter_type_sav" string="Type : SAV" domain="[('type_of_opportunities', '=', 'sav')]"/>
+                    <filter name="filter_type_kit_psicine" string="Type : Kit piscine" domain="[('type_of_opportunities', '=', 'kit_psicine')]"/>
+                    <filter name="filter_type_kit_pv" string="Type : Kit PV" domain="[('type_of_opportunities', '=', 'kit_pv')]"/>
+                    <filter name="filter_type_borne_elec" string="Type : Borne électrique" domain="[('type_of_opportunities', '=', 'borne_elec')]"/>
+                    <filter name="filter_type_other" string="Type : Autre" domain="[('type_of_opportunities', '=', 'other')]"/>
+                    <separator/>
+                </xpath>
+
+                <xpath expr="//filter[@name='source']" position="after">
+                    <separator orientation="vertical"/>
+                    <filter string="Type d'opportunité" name="group_by_type_of_opportunities" context="{'group_by': 'type_of_opportunities'}"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <!-- Formulaire -->
+        <record id="view_crm_lead_form_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.form.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="before">
+                    <field name="type_of_opportunity_badge" readonly="1"  nolabel="1"/>
+                    <field name="suivi_dossier_task_id" options="{'no_create_edit': True}" context="{'form_view_ref': 'project.view_task_form2'}"/>
+                </xpath>
+                <xpath expr="//div[field[@name='email_from']]" position="after">
+                    <field name="formatted_address" readonly="1"/>
+                </xpath>
+                <xpath expr="//div[field[@name='phone']]" position="after">
+                    <div class="o_row o_row_readonly">
+                        <label for="mobile_partner" class="oe_inline"/>
+                        <field name="mobile_partner" string="Mobile" widget="phone"/>
+                    </div>
+                </xpath>
+                <field name="tag_ids" position="after">
+                    <field name="type_of_opportunities"/>
+                    <field name="type_de_sav" invisible="type_of_opportunities != 'sav'"/>
+                    <field name="type_of_financing"/>
+                    <field name="type_of_prime"/>
+                    <field name="company_id"/>
+                    <field name="medium_id" string="Canal de vente"/>
+                </field>
+
+                <xpath expr="//notebook" position="before">
+                    <div class="oe_button_box" name="caracteristique_button_box">
+                        <button name="action_open_caracteristique_technique" type="object" string="Caractéristique technique" class="oe_highlight" />
+                    </div>
+                </xpath>
+                
+                <xpath expr="//notebook" position="inside">
+                    <page string="Informations techniques">
+                        <group>
+                            <field name="date_de_visite_technique"/>
+                        </group>
+                        <group string="Données chauffe-eau solaire">
+                            <group>
+                                <field name="ces_size_in_litre"/>
+                                <field name="ces_nb_captor"/>
+                                <field name="ces_color"/>
+                                <field name="ces_resistance"/>
+                                <field name="ces_cuivre_supp"/>
+                                <field name="ces_cuivre_supp_nb_metre"/>
+                                <field name="ces_rehausse"/>
+                                <field name="ces_type_bloc"/>
+                            </group>
+                            <group>
+                                <field name="ces_pente_degre"/>
+                                <field name="ces_hauteur_m"/>
+                                <field name="ces_orientation_prevue"/>
+                                <field name="ces_installation_sur"/>
+                                <field name="ces_raccordement_sur"/>
+                                <field name="ces_raccordement_detail"/>
+                            </group>
+                        </group>
+
+                        <group string="Structure / Fixation / Toiture">
+                            <group>
+                                <field name="ces_charpente"/>
+                                <field name="ces_type_tole"/>
+                                <field name="ces_attentes_prevues"/>
+                            </group>
+                            <group>
+                                <field name="ces_distance_cuve_capteur"/>
+                                <field name="ces_chauffe_eau_existant"/>
+                                <field name="ces_chauffe_eau_conserver"/>
+                                <field name="ces_maison_plus_deux_ans"/>
+                                <field name="ces_date_permis_construire"/>
+                            </group>
+                        </group>
+
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Kanban -->
+        <record id="view_crm_lead_kanban_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.kanban.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//kanban" position="inside">
+                    <field name="type_of_opportunities"/>
+                </xpath>
+
+                <xpath expr="//t[@t-name='card']/field[@name='name']" position="after">
+                    <div class="my-1">
+                        <t t-set="value" t-value="record.type_of_opportunities.raw_value"/>
+                        <t t-set="label" t-value="record.type_of_opportunities.value"/>
+
+                        <t t-set="color">
+                            <t t-if="value === 'ba'">#007bff</t>              <!-- Bleu -->
+                            <t t-elif="value === 'ces'">#ffc107</t>           <!-- Jaune -->
+                            <t t-elif="value === 'led'">#28a745</t>           <!-- Vert -->
+                            <t t-elif="value === 'iso'">#dc3545</t>           <!-- Rouge -->
+                            <t t-elif="value === 'sav'">#6c757d</t>           <!-- Gris foncé -->
+                            <t t-elif="value === 'kit_pv'">#e83e8c</t>        <!-- Rose -->
+                            <t t-elif="value === 'kit_psicine'">#8B4513</t>   <!-- Marron -->
+                            <t t-elif="value === 'borne_elec'">#6f42c1</t>    <!-- Mauve -->
+                            <t t-elif="value === 'pic'">#17a2b8</t>           <!-- Bleu clair -->
+                            <t t-elif="value === 'other'">#adb5bd</t>         <!-- Gris clair -->
+                        </t>
+
+                        <t t-if="!color">
+                            <t t-set="color">#adb5bd</t> <!-- fallback -->
+                        </t>
+
+                        <t t-if="value">
+                            <span t-attf-style="background-color: {{color}}; color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; display: inline-block;">
+                                <t t-esc="label"/>
+                            </span>
+                        </t>
+                    </div>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>
