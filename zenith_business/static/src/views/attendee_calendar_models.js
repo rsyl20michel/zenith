@@ -18,9 +18,7 @@ patch(AttendeeCalendarModel.prototype, {
                     [["id", "=", event.rawRecord.opportunity_id[0]]],
                     ["city", "street", "street2", "zip"]);
 
-                if (leads) {
-                    event.city = leads[0].city;
-                }
+                event.city = leads && leads.length ? leads[0].city : '';
             }
         }
     }
