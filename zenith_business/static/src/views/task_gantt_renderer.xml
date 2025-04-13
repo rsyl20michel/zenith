@@ -7,15 +7,15 @@
         <small t-if="pill.record.type_of_opportunity_badge"
                t-out="convertToHtml(pill.record.type_of_opportunity_badge)"/>
         <t t-set="parts" t-value="pill.displayName.split('-')"/>
-        <small t-if="parts.length &gt; 2" class="text-truncate mx-1" t-esc="parts.slice(0, 2).join('-')"/>
+        <small t-if="parts.length &gt; 2" class="extra-small text-truncate mx-1" t-esc="parts.slice(0, 2).join('-')"/>
         <br/>
-        <small t-esc="pill.record.partner_id[1]"/>
+        <small class="extra-small" t-esc="pill.record.partner_id[1]"/>
         <br/>
-        <small class="text-info" t-if="pill.record.partner_zip" t-esc="pill.record.partner_zip"/>
+        <small class="extra-small text-info" t-if="pill.record.partner_zip" t-esc="pill.record.partner_zip"/>
         <t class="text-info" t-if="pill.record.partner_city">
           -
         </t>
-        <small class="text-info text-wrap" t-if="pill.record.partner_city"
+        <small class="extra-small text-info text-wrap" t-if="pill.record.partner_city"
                t-esc="pill.record.partner_city.slice(0, 20)"/>
       </xpath>
     </t>

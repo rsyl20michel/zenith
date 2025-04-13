@@ -1,6 +1,5 @@
 import {patch} from "@web/core/utils/patch";
 import {CalendarCommonRenderer} from "@web/views/calendar/calendar_common/calendar_common_renderer";
-import {useService} from "@web/core/utils/hooks";
 import {renderToString} from "@web/core/utils/render";
 
 patch(CalendarCommonRenderer.prototype, {
