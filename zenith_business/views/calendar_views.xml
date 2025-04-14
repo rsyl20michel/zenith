@@ -11,6 +11,7 @@
           <attribute name="color">type_of_opportunity_color</attribute>
         </xpath>
         <xpath expr="//calendar" position="inside">
+          <field name="type_of_opportunity_color" invisible="1"/>
           <field name="opportunity_id" filters="1" invisible="1"/>
         </xpath>
       </field>

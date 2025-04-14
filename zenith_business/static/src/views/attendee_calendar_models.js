@@ -19,6 +19,7 @@ patch(AttendeeCalendarModel.prototype, {
                     ["city", "street", "street2", "zip"]);
 
                 event.city = leads && leads.length ? leads[0].city : '';
+                event.colorIndex = event.rawRecord.type_of_opportunity_color ? event.rawRecord.type_of_opportunity_color : event.attendeeId;
             }
         }
     }
